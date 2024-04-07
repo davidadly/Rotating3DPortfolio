@@ -1,0 +1,213 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    overflow: hidden;
+}
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+@import 'https://fonts.googleapis.com/css?family=VT323';
+
+$cells: 320;
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #333;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.sun {
+    position: absolute;
+    bottom: 250px;
+    left:40%;
+    width: 20%;
+    height: 20vw;
+    filter: blur(1px);
+    opacity: 0;
+    z-index: 2;
+
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+
+}
+
+.car {
+    position: absolute;
+    bottom: 0;
+    left: 50vw;
+    width: 148px;
+    height: 125px;
+    transform: scale(1.5,1.5);
+    animation: driving 8s linear infinite;
+    background: url(https://67.media.tumblr.com/c42c28aa99430e725f879b54c2ef7af0/tumblr_oe6o2mTx1l1u1vzz5o1_250.png);
+    z-index: 3;
+}
+
+.car img {
+    margin-top: -27px;
+    margin-left: 75px;
+    width: 65px;
+}
+
+@keyframes driving {
+    80% {
+        bottom: 5px;
+        left: 49vw;
+    }
+}
+
+
+
+img.palm {
+    position: absolute;
+    top: -50%;
+    left: 37%;
+    width: 200px;
+    transform: scale(0.025, 0.025);
+    -webkit-animation: hueRotate 8s linear infinite,
+    palmPassing 8s ease-in infinite;
+    animation: hueRotate 8s linear infinite,
+    palmPassing 8s ease-in infinite;
+    z-index: 1;
+}
+
+img.palmrev {
+    position: absolute;
+    top: -50%;
+    right: 37%;
+    width: 200px;
+    transform: scale(-0.025, 0.025);
+    -webkit-animation: hueRotate 8s linear infinite,
+    revPassing 8s ease-in infinite;
+    animation: hueRotate 8s linear infinite,
+    revPassing 8s ease-in infinite;
+    -webkit-animation-delay: -4s; /* Chrome, Safari, Opera */
+    animation-delay: -4s;
+    z-index: 1;
+}
+
+@keyframes palmPassing {
+    100% {
+        transform: scale(2, 2);
+        left: -250px;
+        bottom: 0;
+    }
+}
+
+@keyframes revPassing {
+    100% {
+        transform: scale(-2, 2);
+        right: -250px;
+        bottom: 0;
+    }
+}
+
+
+.grid-container {
+    height: 320px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 480px;
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+}
+
+
+.grid {
+    width: 400px;
+    height: 8000px;
+    color: #f12;
+    background: rgba(153,153,153,0.6);
+    z-index: 3;
+    animation:
+        slide-up .5s linear infinite;
+
+div {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    float: left;
+    border: 10px solid;
+    border-right: none;
+    border-top-width: 2.5px;
+    border-bottom-width: 2.5px;
+    animation:
+        shine 1s linear infinite;
+
+&:nth-child(4n) {
+     border-right: 10px solid
+ }
+
+@for $i from 1 through $cells {
+$j: $cells - ($i - 1);
+&:nth-child(#{$i}) {
+     opacity:
+     1 - ($j / $cells) * 2.5;
+     animation-delay:
+     ceil($j / 4) * 50ms;
+ }
+}
+}
+}
+
+
+
+
+
+    .sun {
+        left: 30%;
+        width: 40%;
+        height: 40vw;
+    }
+
+    img.palm {
+        left: 32%;
+    }
+
+    img.palmrev {
+        right: 32%;
+    }
+}
+
+@media (max-width: 600px) {
+    .vapor h1 {
+        font-size: 32pt;
+    }
+
+    .sun {
+        left: 25%;
+        width: 50%;
+        height: 50vw;
+    }
+
+    img.palm {
+        left: 25%;
+    }
+
+    img.palmrev {
+        right: 25%;
+    }
+}

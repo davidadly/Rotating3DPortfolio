@@ -1,0 +1,54 @@
+h1 {
+  text-align: center;
+  margin: 1rem;
+}
+
+.cards {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 1rem;
+  justify-content: space-around;
+}
+
+.cards a {
+  text-decoration: none;
+}
+
+button.card {
+  background-color: none;
+  border: none;
+  cursor: pointer;
+}
+
+.card {
+  width: clamp(200px, 80%, 250px);
+  padding: 1rem;
+  border-radius: 5px;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+}
+
+.card h3 {
+  color: #04bac7;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.card img {
+  width: 48px;
+  height: 48px;
+}
+
+.card:hover {
+  background: #ddd;
+}
+
+.card:hover h3 {
+  color: #00eeff;
+}

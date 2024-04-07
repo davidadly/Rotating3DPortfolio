@@ -1,0 +1,3 @@
+Sony Wave Animation using Sin. Made in Houdini VFX while learning VEX & procedural animation. 
+
+August 2021

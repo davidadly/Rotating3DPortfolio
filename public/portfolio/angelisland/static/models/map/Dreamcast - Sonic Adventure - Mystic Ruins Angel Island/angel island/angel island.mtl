@@ -1,0 +1,540 @@
+newmtl ADV_MR01_material_0
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd ken128_tree01.png
+newmtl ADV_MR01_material_1
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_064s_dukutunaa.png
+newmtl ADV_MR01_material_2
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_064s_dukutunab.png
+newmtl ADV_MR01_material_3
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_064s_dukutunac.png
+newmtl ADV_MR01_material_4
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_064s_dukutunad.png
+newmtl ADV_MR01_material_5
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_064s_kusaisi.png
+newmtl ADV_MR01_material_6
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_064s_yamatunaa.png
+newmtl ADV_MR01_material_7
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_064s_yamatunab.png
+newmtl ADV_MR01_material_8
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_064s_yamatunac.png
+newmtl ADV_MR01_material_9
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_064s_yamatunad.png
+newmtl ADV_MR01_material_10
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_128s_aonad.png
+newmtl ADV_MR01_material_11
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_128s_criwaa.png
+newmtl ADV_MR01_material_12
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_128s_criwab.png
+newmtl ADV_MR01_material_13
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_128s_criwac.png
+newmtl ADV_MR01_material_14
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_128s_kusa.png
+newmtl ADV_MR01_material_15
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_128s_kusasige.png
+newmtl ADV_MR01_material_16
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_128s_mori.png
+newmtl ADV_MR01_material_17
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_aonaa.png
+newmtl ADV_MR01_material_18
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_aonab.png
+newmtl ADV_MR01_material_19
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_aonac.png
+newmtl ADV_MR01_material_20
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_eia.png
+newmtl ADV_MR01_material_21
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_eib.png
+newmtl ADV_MR01_material_22
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_eic.png
+newmtl ADV_MR01_material_23
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_pekia.png
+newmtl ADV_MR01_material_24
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_pekib.png
+newmtl ADV_MR01_material_25
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_pekic.png
+newmtl ADV_MR01_material_26
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_pekid.png
+newmtl ADV_MR01_material_27
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_pekie.png
+newmtl ADV_MR01_material_28
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_pekif.png
+newmtl ADV_MR01_material_29
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_pekig.png
+newmtl ADV_MR01_material_30
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_pekih.png
+newmtl ADV_MR01_material_31
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_simb.png
+newmtl ADV_MR01_material_32
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_simuea.png
+newmtl ADV_MR01_material_33
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_simueb.png
+newmtl ADV_MR01_material_34
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_simuec.png
+newmtl ADV_MR01_material_35
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_simued.png
+newmtl ADV_MR01_material_36
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_sitkaba.png
+newmtl ADV_MR01_material_37
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_sitkabb.png
+newmtl ADV_MR01_material_38
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_uekaba.png
+newmtl ADV_MR01_material_39
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_yamaf.png
+newmtl ADV_MR01_material_40
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_yamkaba.png
+newmtl ADV_MR01_material_41
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_yamkabb.png
+newmtl ADV_MR01_material_42
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_yamkabc.png
+newmtl ADV_MR01_material_43
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_256s_yamkabd.png
+newmtl ADV_MR01_material_44
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_512s_pekia.png
+newmtl ADV_MR01_material_45
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mrb_512s_pekib.png
+newmtl ADV_MR01_material_46
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_008o_kuro.png
+newmtl ADV_MR01_material_47
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_064k_chpdaiza.png
+newmtl ADV_MR01_material_48
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_064k_chpkabekado.png
+newmtl ADV_MR01_material_49
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_064k_chpkakiue.png
+newmtl ADV_MR01_material_50
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_064k_chpmizo.png
+newmtl ADV_MR01_material_51
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_064k_chwallue.png
+newmtl ADV_MR01_material_52
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_064s_kori.png
+newmtl ADV_MR01_material_53
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chemepo.png
+newmtl ADV_MR01_material_54
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chpbigiwa.png
+newmtl ADV_MR01_material_55
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chpemepokin.png
+newmtl ADV_MR01_material_56
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chpkirikuti.png
+newmtl ADV_MR01_material_57
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chpkoke2.png
+newmtl ADV_MR01_material_58
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chpkusa.png
+newmtl ADV_MR01_material_59
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chpkusajimen.png
+newmtl ADV_MR01_material_60
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chpmoyou.png
+newmtl ADV_MR01_material_61
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chppoue.png
+newmtl ADV_MR01_material_62
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chprenga.png
+newmtl ADV_MR01_material_63
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chprengaheri.png
+newmtl ADV_MR01_material_64
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chpshita.png
+newmtl ADV_MR01_material_65
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chptatesen.png
+newmtl ADV_MR01_material_66
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chptuti.png
+newmtl ADV_MR01_material_67
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chpueha.png
+newmtl ADV_MR01_material_68
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chpuekusaha.png
+newmtl ADV_MR01_material_69
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_chyukatest.png
+newmtl ADV_MR01_material_70
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_cphori.png
+newmtl ADV_MR01_material_71
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128k_cpkakine.png
+newmtl ADV_MR01_material_72
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128o_tree01.png
+newmtl ADV_MR01_material_73
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128o_tree02.png
+newmtl ADV_MR01_material_74
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128o_tree03.png
+newmtl ADV_MR01_material_75
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd mr_128o_tree04.png
+newmtl ADV_MR01_material_76
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt00.png
+newmtl ADV_MR01_material_77
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt01.png
+newmtl ADV_MR01_material_78
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt02.png
+newmtl ADV_MR01_material_79
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt03.png
+newmtl ADV_MR01_material_80
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt04.png
+newmtl ADV_MR01_material_81
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt05.png
+newmtl ADV_MR01_material_82
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt06.png
+newmtl ADV_MR01_material_83
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt07.png
+newmtl ADV_MR01_material_84
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt08.png
+newmtl ADV_MR01_material_85
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt09.png
+newmtl ADV_MR01_material_86
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt10.png
+newmtl ADV_MR01_material_87
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt11.png
+newmtl ADV_MR01_material_88
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt12.png
+newmtl ADV_MR01_material_89
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd s_los_wt13.png

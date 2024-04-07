@@ -1,0 +1,1 @@
+Collison points in Houdini Vex test

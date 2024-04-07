@@ -1,0 +1,5 @@
+Prototype of chewing mouthpiece based on publically available patents with mouth guards. Designed to allow user to chew a removable piece of rubber that functions as a piece of gum for long periods of time. 
+
+Changed design after talking to my dentist about the fit. 
+
+Made in SolidWorks April 2021

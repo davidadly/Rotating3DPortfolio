@@ -1,0 +1,1 @@
+Character's D & X created in rhino and few points that effect size around them. Created honeycomb effect by using an array of a premade object made by grasshopper in python. 

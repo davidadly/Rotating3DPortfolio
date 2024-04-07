@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicons/
+favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/admin/showcase/showcase.css" />
+    <link rel="stylesheet" href="./feature-video.css" />
+    <title>Edit Feature Video</title>
+  </head>
+  <body>
+    <h1>Admin Dashboard for Feature Video</h1>
+    <div class="feature-videos"></div>
+    <div class="modal"></div>
+    <div class="popup">
+      <h2>Add a new feature video</h2>
+      <form class="form">
+        <input required type="file" hidden id="new-file" accept="video/*" />
+        <label for="new-file">
+          <img
+            src="/assets/icons/video.png"
+            alt="click to select a file to add"
+          />
+          <h3>Select your video *</h3>
+        </label>
+        <button>Create Item</button>
+      </form>
+    </div>
+
+    <div class="add_new_item">
+      <img src="/assets/icons/plus.png" alt="Add New Item" />
+    </div>
+    <script src="/admin/login/checkLogin.js"></script>
+    <script src="feature-video.js"></script>
+  </body>
+</html>

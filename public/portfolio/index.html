@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicons/
+favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <title>SA MAPS</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
+      .chart-con {
+        max-width: 800px;
+        margin: 0 auto;
+        height: 80vh;
+        padding: 1rem;
+        margin-top: 90px;
+      }
+
+      .chart-con svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .arc text {
+        font: 10px sans-serif;
+        text-anchor: middle;
+      }
+
+      .arc path {
+        stroke: #fff;
+      }
+
+      .title {
+        fill: teal;
+        font-weight: bold;
+      }
+    </style>
+
+  </head>
+  <body>
+    <header>
+      
+      <!-- <div class="icons">
+        <a href="https://soundcloud.com/dxadlyy" target="_blank">
+          <img src="/assets/icons/music.png" alt="Music" />
+        </a>
+        <a href="https://twitter.com/dxadly?lang=en" target="_blank">
+          <img src="/assets/icons/twitter.png" alt="Twitter" />
+        </a>
+        <a href="https://www.instagram.com/dxadlyy/" target="_blank">
+          <img src="/assets/icons/instagram.png" alt="Instagram" />
+        </a>
+      </div>
+      <div class="headline">
+        <h1><a href="/home.html">DXADLY</a></h1>
+        <h3>PORTFOLIO</h3>
+      </div> -->
+      <nav>
+        <a href="/contact.html">CONTACT</a>
+        </nav>
+      </nav>
+    </header>
+
+    <main>
+      <nav>
+        <ul id="mainMenu">
+        </ul>
+      </nav>
+    </main>
+    <div class="chart-con">
+      <svg></svg>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"
+      integrity="sha512-NMhzM2RHzbCRO0s5VPaRC+2bW6nmNXimzC9p5sp2x19M+zzuSJ2T50dEQ7hpHkNjnX1mt8nQg1NNthwRZgsoIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>

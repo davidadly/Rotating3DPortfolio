@@ -1,0 +1,7 @@
+node_modules/
+.vscode
+index3.html
+scripts/render3.js
+scripts/build/dat.gui.module.js
+public/portfolio/SA-maps/music/
+package-lock.json

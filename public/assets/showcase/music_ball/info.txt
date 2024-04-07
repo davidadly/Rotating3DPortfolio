@@ -1,0 +1,3 @@
+A ball made in Houdini using procedural programming that reacts to music. Bottom is an array that is timed to move in a sin wave.  
+
+April 2021

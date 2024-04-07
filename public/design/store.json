@@ -1,0 +1,18 @@
+[
+  {
+    "model": "/assets/models/design/fiji/model.glb",
+    "title": "Fiji"
+  },
+  {
+    "model": "/assets/models/design/flower-earring/model.glb",
+    "title": "Flower Earring"
+  },
+  {
+    "model": "/assets/models/design/grind-plate/model.glb",
+    "title": "Grind Plate"
+  },
+  {
+    "model": "/assets/models/design/improved-step-by-step/model.glb",
+    "title": "Improved step by step"
+  }
+]

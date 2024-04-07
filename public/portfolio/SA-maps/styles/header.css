@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+  font-family: ariel;
+}
+header .icons img {
+  width: 20px;
+  height: 20px;
+}
+header h1 a {
+  text-decoration: none;
+  color: #2a85ec;
+}
+header h1 a:hover {
+  color: #68aeff;
+}
+header .headline {
+  text-align: center;
+  flex-grow: 1;
+}
+
+header .player {
+  position: absolute;
+  top: -2rem;
+  right: 0.5rem;
+}
+
+header .player.active {
+  top: 8rem;
+  right: 4.5rem;
+}
+
+.icons {
+  position: absolute;
+}
+.icons > * {
+  margin-right: 0.5rem;
+}
+.icons a {
+  text-decoration: none;
+}
+
+.icons img:hover {
+  opacity: 0.8;
+}

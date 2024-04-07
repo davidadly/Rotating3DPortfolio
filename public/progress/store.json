@@ -1,0 +1,18 @@
+[
+  {
+    "model": "/assets/models/progress/love-hate-love/model.glb",
+    "title": "Lock"
+  },
+  {
+    "model": "/assets/models/progress/mechanical-tool/model.glb",
+    "title": "Mechanical Tool"
+  },
+  {
+    "model": "/assets/models/progress/modern-table/model.glb",
+    "title": "Modern Table"
+  },
+  {
+    "model": "/assets/models/progress/money-with-rope/model.glb",
+    "title": "Money With Rope"
+  }
+]

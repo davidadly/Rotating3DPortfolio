@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/contact.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicons/
+favicon-32x32.png"
+    />
+    <title>Contact Me</title>
+  </head>
+  <body>
+    <header>
+      <div class="icons">
+        <!-- <a href="https://twitter.com/dxadly?lang=en" target="_blank">
+          <img src="/assets/icons/twitter.png" alt="Twitter" />
+        </a>
+        <a href="https://www.instagram.com/dxadlyy/" target="_blank">
+          <img src="/assets/icons/instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://soundcloud.com/dxadlyy" target="_blank">
+          <img src="/assets/icons/sound-cloud.png" alt="Music" />
+        </a> -->
+      </div>
+      <div class="headline">
+        <h1><a href="/home.html">DXADLY</a></h1>
+        <h3><a href="/portfolio" target="_self"> PORTFOLIO </a></h3>
+      </div>
+      <nav>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </header>
+    <div id="feedback-success" class="">Successfully send the msg</div>
+    `
+
+    <div class="contact-container">
+      <h1>Contact Me</h1>
+      <form class="contact-form">
+        <!-- <label for="name">Name</label> -->
+        <!-- <input type="text" autofocus id="name" placeholder="Your Name" /> -->
+
+        <label for="email" aria-required="true">Email</label>
+        <input
+          type="email"
+          autofocus
+          id="email"
+          placeholder="Your Email Address"
+        />
+        <small class="err-msg"></small>
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="Subject" />
+
+        <small class="err-msg"></small>
+        <label for="message" aria-required="true">Message</label>
+        <textarea
+          id="message"
+          placeholder="Please type your message here"
+        ></textarea>
+
+        <small class="err-msg"></small>
+        <button id="submit">SEND</button>
+
+        <small class="err-msg"></small>
+      </form>
+    </div>
+    <script src="/scripts/contact.js"></script>
+  </body>
+</html>

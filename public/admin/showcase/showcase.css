@@ -1,0 +1,268 @@
+h1 {
+  text-align: center;
+  margin: 1rem;
+}
+.showcase {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.drag-form form input,
+.drag-form form textarea {
+  padding: 10px 20px;
+  margin: 10px 0;
+}
+
+.drag-form form textarea {
+  resize: none;
+  height: 80px;
+}
+
+.drag-form form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: aqua;
+  box-shadow: 0px 0px 3px 5px rgb(0 0 0 / 9%);
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+@media (min-width: 500px) {
+  .showcase {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 800px) {
+  .showcase {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .showcase {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.card {
+  box-shadow: 0px 0px 3px 5px rgba(0, 0, 0, 0.09);
+  cursor: grab;
+  position: relative;
+}
+.card.pressed {
+  cursor: grabbing;
+}
+
+.card-body img {
+  width: 100%;
+  pointer-events: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0vw;
+  height: 0vh;
+  opacity: 0;
+  transform: opacity 200ms;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal.active {
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  opacity: 1;
+}
+
+.popup,
+.new-item-con {
+  z-index: -1;
+  position: fixed;
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 300ms, height 300ms;
+  background-color: white;
+  overflow: hidden;
+}
+
+.new-item-con.active form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form label[for="file"],
+form h3 {
+  text-align: center;
+}
+
+.new-item-con.active form > * {
+  width: 95%;
+}
+
+.new-item-con > *,
+.popup > * {
+  display: none;
+}
+
+.new-item-con.active > *,
+.popup.active > * {
+  display: initial;
+}
+
+.popup.active,
+.new-item-con.active {
+  width: 500px;
+  height: 350px;
+  padding: 1rem;
+  z-index: 3;
+  overflow: initial;
+}
+
+.popup .btns {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.popup textarea {
+  font: inherit;
+  width: 100%;
+  height: 280px;
+  overflow-y: auto;
+  resize: none;
+  padding: 0.5rem;
+}
+
+.popup textarea::-webkit-scrollbar {
+  width: 3px;
+  background-color: #333;
+}
+.popup textarea::-webkit-scrollbar-thumb {
+  background-color: #111;
+}
+
+.btns > button {
+  font: inherit;
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: gray;
+  color: white;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btns > button:hover,
+.btns > button:active,
+.btns > button:focus {
+  background-color: white;
+  color: gray;
+  border: 1px solid gray;
+}
+
+.btns > .submit {
+  background: green;
+}
+
+.btns > .submit:hover,
+.btns > .submit:focus,
+.btns > .submit:active {
+  background-color: white;
+  color: green;
+  border: 1px solid green;
+}
+
+.close-btn {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 24px;
+  height: 24px;
+}
+
+#msg {
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: white;
+  animation: show-briefly 2s;
+  text-transform: capitalize;
+  z-index: 100;
+}
+
+#msg.success {
+  background: green;
+}
+
+#msg.fail {
+  background: red;
+}
+
+@keyframes show-briefly {
+  10% {
+    top: 20px;
+  }
+  80% {
+    top: 20px;
+  }
+}
+
+.add_new_item {
+  width: 50px;
+  height: 50px;
+  padding: 0.5rem;
+  border: 1px solid rgb(15, 128, 0);
+  border-radius: 50%;
+  position: fixed;
+  z-index: 1;
+  bottom: 2rem;
+  right: 2rem;
+  cursor: pointer;
+}
+
+.add_new_item:hover {
+  background-color: #eee;
+}
+
+.add_new_item img {
+  width: 100%;
+}
+
+.delete_icon {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+
+.delete_icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover .delete_icon {
+  display: initial;
+  cursor: pointer;
+}

@@ -1,0 +1,144 @@
+body {
+  text-align: center;
+}
+
+body.wait {
+  cursor: wait;
+}
+
+#scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  outline: none;
+	overflow: none;
+}
+
+.info-con {
+  position: fixed;
+  bottom: 0rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 10;
+  padding: 0.5rem 1rem;
+}
+
+.txt a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #2a85ec;
+}
+
+.txt a:hover {
+  color: #68aeff;
+}
+
+.control-con > * {
+  position: fixed;
+  z-index: 2;
+}
+
+.cNext {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(-90deg);
+      -ms-transform: translateY(-50%) rotate(-90deg);
+          transform: translateY(-50%) rotate(-90deg);
+}
+
+.cPrev {
+  position: fixed;
+  left: 2rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(90deg);
+      -ms-transform: translateY(-50%) rotate(90deg);
+          transform: translateY(-50%) rotate(90deg);
+}
+
+.cDown {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.cUp {
+  position: fixed;
+  top: calc(70px + 1rem);
+  left: 50%;
+  -webkit-transform: translateX(-50%) rotate(180deg);
+      -ms-transform: translateX(-50%) rotate(180deg);
+          transform: translateX(-50%) rotate(180deg);
+}
+
+button {
+  background: none;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active img {
+  -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+button:disabled {
+  pointer-events: none;
+}
+
+button img {
+  width: 50px;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: none;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.loading.active {
+  display: block;
+}
+
+.loading p {
+  text-align: center;
+  color: white;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
+
+.hide {
+  display: none;
+}
+
+.infobox {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}

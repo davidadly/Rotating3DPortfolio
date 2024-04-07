@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicons/
+favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="./dashboard.css" />
+    <link rel="stylesheet" href="./showcase/showcase.css" />
+    <link rel="stylesheet" href="./feature-video/feature-video.css" />
+    <title>Dxadly - Admin Dashboard</title>
+  </head>
+  <body>
+    <h1>Welcome to Dashboard</h1>
+    <nav>
+      <ul class="cards">
+        <li>
+          <a href="/admin/showcase/edit-gallery.html">
+            <div class="card">
+              <img src="/assets/icons/photo-gallery.png" alt="Photo Gallery" />
+              <h3>Edit Gallery</h3>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/admin/feature-video/edit-feature-video.html">
+            <div class="card">
+              <img src="/assets/icons/multimedia.png" alt="Feature Video" />
+              <h3>Edit Feature Video</h3>
+            </div>
+          </a>
+        </li>
+        <li>
+          <button class="card" id="trigger-popup">
+            <img src="/assets/icons/3d-modeling.png" alt="Add a new Model" />
+            <h3>Add a Model</h3>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <div class="modal"></div>
+    <div class="popup">
+      <h2>Add a new model</h2>
+      <form class="form">
+        <input
+          required
+          type="file"
+          hidden
+          id="new-model"
+          name="file"
+          accept=".glb,.gltf"
+        />
+        <label for="new-model">
+          <img
+            src="/assets/icons/3d-modeling.png"
+            alt="click to select a file to add"
+          />
+          <h3>Select your model *</h3>
+        </label>
+        <button>Add Model</button>
+      </form>
+    </div>
+    <script src="/admin/login/checkLogin.js"></script>
+    <script src="./dashboard.js"></script>
+  </body>
+</html>

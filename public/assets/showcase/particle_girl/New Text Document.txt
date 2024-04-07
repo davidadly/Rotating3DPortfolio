@@ -1,0 +1,1 @@
+Made with Houdini VFX particle simulation with 1 million points graduated rbg values set by gravity weight. 

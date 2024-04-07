@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicons/
+favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="./showcase.css" />
+    <title>Edit Gallery Order</title>
+  </head>
+  <body>
+    <h1>Admin Dashboard</h1>
+    <div class="showcase"></div>
+    <div class="modal"></div>
+    <div class="popup">
+      <img src="/assets/icons/close.png" class="close-btn" />
+      <form>
+        <textarea></textarea>
+        <div class="btns">
+          <button class="cancel">CANCEL</button>
+          <button class="submit">UPDATE</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="drag-form new-item-con">
+      <img src="/assets/icons/close.png" class="close-btn" />
+      <form id="form" enctype="multipart/form-data">
+        <h3>Add a new gallery item</h3>
+        <input
+          type="text"
+          name="foldername"
+          id="foldername"
+          placeholder="Item Name *"
+          required
+        />
+        <textarea
+          name="info"
+          id="info"
+          placeholder="Enter info about the thing here!"
+        ></textarea>
+        <label for="file">
+          <img src="/assets/icons/media.png" alt="Select Media" />
+          <h3>Select Media *</h3>
+        </label>
+        <input
+          type="file"
+          name="file"
+          accept="video/*, image/*"
+          id="file"
+          hidden
+          required
+        />
+        <button type="submit" id="create-item-btn">Create Item</button>
+      </form>
+    </div>
+    <div class="add_new_item">
+      <img src="/assets/icons/plus.png" alt="Add New Item" />
+    </div>
+    <script src="/admin/login/checkLogin.js"></script>
+    <script src="showcase.js"></script>
+  </body>
+</html>
