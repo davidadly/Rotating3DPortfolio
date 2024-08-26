@@ -4,5 +4,6 @@ index3.html
 scripts/render3.js
 scripts/build/dat.gui.module.js
 public/portfolio/SA-maps/music/
+public/scripts/build/GLTFLoader.module_files/
 package-lock.json
 .aider*
