@@ -23,7 +23,41 @@
             margin: 0;
             padding: 0;
         }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(240, 248, 255, 0.8);
+            backdrop-filter: blur(5px);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            padding-top: 60px;
+            z-index: 1000;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+        .sidebar ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+        .sidebar ul li a:hover {
+            background-color: #87ceeb;
+            color: #ffffff;
+            transform: translateX(5px);
+        }
         .container {
+            margin-left: 270px;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
@@ -56,7 +90,16 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="sidebar">
+        <ul>
+            <li><a href="/home.html"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="/portfolio.html"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+            <li><a href="/about.html"><i class="fa fa-user"></i> About</a></li>
+            <li><a href="/contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+            <li><a href="/blog.html"><i class="fa fa-pencil"></i> Blog</a></li>
+        </ul>
+    </div>
+    <div class="container" style="margin-left: 270px;">
         <div class="about-section">
             <h1>About Me</h1>
             <p>Welcome to my personal website! I'm David Adly, a passionate software developer with a love for creating innovative solutions. With a background in web development, I specialize in building responsive and user-friendly applications.</p>
