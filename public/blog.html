@@ -65,6 +65,12 @@
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         padding: 20px;
         margin-bottom: 30px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .blog-post:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       }
       .blog-post h3 {
         margin-top: 0;
@@ -73,12 +79,6 @@
       .blog-post .date {
         color: #7f8c8d;
         font-size: 0.9em;
-      }
-      .blog-post img {
-        max-width: 100%;
-        height: auto;
-        margin-top: 15px;
-        border-radius: 4px;
       }
       .pagination {
         display: flex;
@@ -150,24 +150,24 @@
 
         function renderBlogPosts() {
           blogPostsContainer.innerHTML = '';
-          const start = (currentPage - 1) * postsPerPage;
-          const end = start + postsPerPage;
-          const paginatedPosts = blogPosts.slice(start, end);
-
-          paginatedPosts.forEach(post => {
+          blogPosts.forEach((post, index) => {
             const postElement = document.createElement('div');
             postElement.className = 'blog-post';
             postElement.innerHTML = `
               <h3>${escapeHTML(post.title)}</h3>
               <p class="date">${post.date}</p>
-              <p>${escapeHTML(post.content)}</p>
-              ${post.image ? `<img src="${post.image}" alt="Blog post image">` : ''}
             `;
+            postElement.addEventListener('click', () => {
+              window.location.href = `blog-post.html?id=${index}`;
+            });
             blogPostsContainer.appendChild(postElement);
           });
-
-          updatePaginationControls();
         }
+
+        // Remove pagination-related code
+        prevPageButton.remove();
+        nextPageButton.remove();
+        pageInfo.remove();
 
         function updatePaginationControls() {
           pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(blogPosts.length / postsPerPage)}`;
@@ -206,4 +206,101 @@
       
     </script>
   </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .blog-post {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .blog-post h1 {
+            color: #2c3e50;
+        }
+        .blog-post .date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .blog-post img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="icons">
+            <!-- Social media icons -->
+        </div>
+        <div class="headline">
+            <h1><a href="/home.html">David Adly Portfolio</a></h1>
+            <h3><a href="/portfolio" target="_self"> PORTFOLIO </a></h3>
+        </div>
+        <nav>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div id="blogPostContainer" class="blog-post"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const blogPostContainer = document.getElementById('blogPostContainer');
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id');
+
+            const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+            const post = blogPosts[postId];
+
+            if (post) {
+                document.title = `${post.title} - Blog Post`;
+                blogPostContainer.innerHTML = `
+                    <h1>${escapeHTML(post.title)}</h1>
+                    <p class="date">${post.date}</p>
+                    <p>${escapeHTML(post.content)}</p>
+                    ${post.image ? `<img src="${post.image}" alt="Blog post image">` : ''}
+                `;
+            } else {
+                blogPostContainer.innerHTML = '<h1>Blog post not found</h1>';
+            }
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, 
+                    tag => ({
+                        '&': '&amp;',
+                        '<': '&lt;',
+                        '>': '&gt;',
+                        "'": '&#39;',
+                        '"': '&quot;'
+                    }[tag] || tag)
+                );
+            }
+        });
+    </script>
+</body>
 </html>
