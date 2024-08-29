@@ -26,6 +26,34 @@
             --sidebar-background: rgba(240, 248, 255, 0.8); /* Transparent navy blue for sidebar */
         }
 
+        /* Scroll-to-top button styles */
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #555;
+        }
+
+        #scrollToTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .blog-post img {
             max-width: 100%;
             height: auto;
@@ -264,6 +292,24 @@
             renderBlogPosts();
         });
 
+        // Scroll-to-top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after scrolling down 300px
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
         // Lightbox functionality
         const blogPostsContainer = document.getElementById('blogPostsContainer');
         const lightbox = document.createElement('div');
@@ -296,6 +342,7 @@
             }
         });
     </script>
+    <button id="scrollToTopBtn" style="display: none;">&#8679;</button>
 </body>
 </html>
 <!DOCTYPE html>
