@@ -39,11 +39,9 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             padding: 20px;
             margin-bottom: 30px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease;
         }
         .blog-post:hover {
-            transform: translateY(-5px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         .blog-post h3 {
@@ -53,6 +51,17 @@
         .blog-post .date {
             color: #7f8c8d;
             font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .blog-post .content {
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+        .blog-post img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 15px;
+            border-radius: 4px;
         }
         /* New styles for header */
         header {
@@ -95,16 +104,15 @@
 
             function renderBlogPosts() {
                 blogPostsContainer.innerHTML = '';
-                blogPosts.forEach((post, index) => {
+                blogPosts.forEach((post) => {
                     const postElement = document.createElement('div');
                     postElement.className = 'blog-post';
                     postElement.innerHTML = `
                         <h3>${escapeHTML(post.title)}</h3>
                         <p class="date">${post.date}</p>
+                        <div class="content">${escapeHTML(post.content)}</div>
+                        ${post.image ? `<img src="${post.image}" alt="Blog post image">` : ''}
                     `;
-                    postElement.addEventListener('click', () => {
-                        window.location.href = `/blog-post.html?id=${index}`;
-                    });
                     blogPostsContainer.appendChild(postElement);
                 });
             }
