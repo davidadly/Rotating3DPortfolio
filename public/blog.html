@@ -4,29 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/assets/favicons/apple-touch-
-icon.png"
+      href="/assets/favicons/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/assets/favicons/
-favicon-32x32.png"
+      href="/assets/favicons/favicon-32x32.png"
     />
     <link
       rel="icon"
-      F
       type="image/png"
       sizes="16x16"
-      href="/assets/favicons/
-favicon-16x16.png"
+      href="/assets/favicons/favicon-16x16.png"
     />
-
     <link rel="manifest" href="/assets/favicons/site.webmanifest" />
     <link
       rel="mask-icon"
@@ -34,7 +28,6 @@ favicon-16x16.png"
       color="#5bbad5"
     />
     <meta name="msapplication-TileColor" content="#da532c" />
-
     <link
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
       type="text/css"
@@ -45,27 +38,57 @@ favicon-16x16.png"
       type="text/css"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/dirs.css" />
     <link rel="stylesheet" href="/styles/elements.css" />
     <link rel="stylesheet" href="/styles/blog.css" />
-
     <title>Blog Archive</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .blogs {
+        width: 100%;
+      }
+      .blog-post {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .blog-post img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+        border-radius: 4px;
+      }
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+      }
+      .pagination button {
+        margin: 0 10px;
+      }
+      #pageInfo {
+        margin: 0 10px;
+      }
+      .separator {
+        width: 100%;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <header>
       <div class="icons">
-        <!-- <a href="https://twitter.com/dxadly?lang=en" target="_blank">
-          <img src="assets/icons/twitter.png" alt="Twitter" />
-        </a>
-        <a href="https://www.instagram.com/dxadlyy/" target="_blank">
-          <img src="assets/icons/instagram.png" alt="Instagram" />
-        </a>
-        <a href="https://soundcloud.com/dxadlyy" target="_blank">
-          <img src="assets/icons/sound-cloud.png" alt="Music" />
-        </a> -->
+        <!-- Social media icons -->
       </div>
       <div class="headline">
         <h1><a href="/home.html">DXADLY</a></h1>
@@ -76,34 +99,99 @@ favicon-16x16.png"
       </nav>
     </header>
 
-    <div class="blog-header">
-      <div class="bar upper-bar">
-        ====================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-      </div>
-      <p>Daily Blog 4/22</p>
-      <p>My Thoughts: X</p>
-      <p><i>I know I'm not wrong But I'm not right</i></p>
-      <div class="bar upper-bar">
-        ====================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-      </div>
-    </div>
-
     <div class="container">
-      <div class="blogs"></div>
-      <div class="embeeded-tweets">
-        <a
-          class="twitter-timeline"
-          href="https://twitter.com/DXADLY?ref_src=twsrc%5Etfw"
-          data-theme="dark"
-          >Tweets by DXADLY</a
-        >
-        <script
-          async
-          src="https://platform.twitter.com/widgets.js"
-          charset="utf-8"
-        ></script>
+      <div class="blog-header">
+        <div class="separator">
+          ======================================
+        </div>
+        <p>Daily Blog </p>
+        <div class="separator">
+          ======================================
+        </div>
+      </div>
+
+      <div class="blogs" id="blogPostsContainer"></div>
+      <div class="pagination">
+        <button id="prevPage" disabled>Previous</button>
+        <span id="pageInfo"></span>
+        <button id="nextPage">Next</button>
       </div>
     </div>
-    <script src="/scripts/blog.js"></script>
+    <!-- <script src="/scripts/blog.js"></script> -->
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const blogPostsContainer = document.getElementById('blogPostsContainer');
+        const prevPageButton = document.getElementById('prevPage');
+        const nextPageButton = document.getElementById('nextPage');
+        const pageInfo = document.getElementById('pageInfo');
+
+        const postsPerPage = 5;
+        let currentPage = 1;
+        let blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+
+        function renderBlogPosts() {
+          blogPostsContainer.innerHTML = '';
+          const start = (currentPage - 1) * postsPerPage;
+          const end = start + postsPerPage;
+          const paginatedPosts = blogPosts.slice(start, end);
+
+          paginatedPosts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.className = 'blog-post';
+            postElement.innerHTML = `
+              <div class="separator">
+                ======================================
+              </div>
+              <h3>${escapeHTML(post.title)}</h3>
+              <p class="date"><strong>Date:</strong> ${post.date}</p>
+              <p>${escapeHTML(post.content)}</p>
+              ${post.image ? `<img src="${post.image}" alt="Blog post image">` : ''}
+              <div class="separator">
+                ======================================
+              </div>
+            `;
+            blogPostsContainer.appendChild(postElement);
+          });
+
+          updatePaginationControls();
+        }
+
+        function updatePaginationControls() {
+          pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(blogPosts.length / postsPerPage)}`;
+          prevPageButton.disabled = currentPage === 1;
+          nextPageButton.disabled = currentPage === Math.ceil(blogPosts.length / postsPerPage);
+        }
+
+        function escapeHTML(str) {
+          return str.replace(/[&<>'"]/g, 
+            tag => ({
+              '&': '&amp;',
+              '<': '&lt;',
+              '>': '&gt;',
+              "'": '&#39;',
+              '"': '&quot;'
+            }[tag] || tag)
+          );
+        }
+
+        prevPageButton.addEventListener('click', () => {
+          if (currentPage > 1) {
+            currentPage--;
+            renderBlogPosts();
+          }
+        });
+
+        nextPageButton.addEventListener('click', () => {
+          if (currentPage < Math.ceil(blogPosts.length / postsPerPage)) {
+            currentPage++;
+            renderBlogPosts();
+          }
+        });
+
+        renderBlogPosts();
+      });
+      
+    </script>
   </body>
 </html>

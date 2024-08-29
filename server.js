@@ -1,16 +1,20 @@
-const express = require("express");
-const https = require("https");
-const path = require("path");
-const fs = require("fs");
+// Import necessary modules
+const express = require("express"); // Express framework for building web applications
+const https = require("https"); // HTTPS module for creating a secure server
+const path = require("path"); // Path module for handling file and directory paths
+const fs = require("fs"); // File System module for interacting with the file system
 
+// Create an instance of an Express application
 const app = express();
 
-//app.use('/', (req, res, next) => {
-//  res.send('Hello from SSL Server')
-//})
+// Uncommented code that could be used to send a simple response to requests on the root URL
+// app.use('/', (req, res, next) => {
+//   res.send('Hello from SSL Server')
+// })
 
-const cron = require("node-cron");
-const auth = require("./middleware/auth");
+// Import additional modules and middleware
+const cron = require("node-cron"); // Module for scheduling tasks
+const auth = require("./middleware/auth"); // Custom authentication middleware
 const {
   swap,
   updateInfo,
@@ -18,68 +22,71 @@ const {
   addItem,
   uploadMedia,
   deleteItem,
-} = require("./middleware/showcase");
-const { getDetails } = require("./middleware/portfolio");
-const { sendMail } = require("./middleware/mail");
-const { updateStore } = require("./utils/updateStore");
-const { blog } = require("./utils/blog");
+} = require("./middleware/showcase"); // Middleware functions for handling showcase-related routes
+const { getDetails } = require("./middleware/portfolio"); // Middleware for getting portfolio details
+const { sendMail } = require("./middleware/mail"); // Middleware for sending emails
+const { updateStore } = require("./utils/updateStore"); // Utility function for updating the store
+const { blog } = require("./utils/blog"); // Utility function for handling blog requests
 const {
   addFeatureVideo,
   uploadVideo,
   updateFeatureVideo,
   getFeatureVideo,
   getallFeatureVideos,
-} = require("./middleware/featureVideo");
-const { uploadModel, addModel } = require("./middleware/models");
+} = require("./middleware/featureVideo"); // Middleware for handling feature video operations
+const { uploadModel, addModel } = require("./middleware/models"); // Middleware for handling model uploads
 
-app.use(express.static("public"));
-app.use(express.json());
+// Middleware setup
+app.use(express.static("public")); // Serve static files from the 'public' directory
+app.use(express.json()); // Parse JSON bodies for incoming requests
 app.use(
   express.urlencoded({
-    extended: true,
+    extended: true, // Parse URL-encoded bodies with extended syntax
   })
 );
 
-app.get("/portfolio-details", getDetails);
-app.get("/showcase-details", details);
-app.post("/showcase-swap", auth.isAuth, swap);
-app.put("/showcase-update-info", auth.isAuth, updateInfo);
-app.post("/admin-login", auth.login);
-app.post("/send-mail", sendMail);
-app.get("/blog", blog);
+// Define routes and associate them with middleware functions
+app.get("/portfolio-details", getDetails); // Get portfolio details
+app.get("/showcase-details", details); // Get showcase details
+app.post("/showcase-swap", auth.isAuth, swap); // Swap showcase items, requires authentication
+app.put("/showcase-update-info", auth.isAuth, updateInfo); // Update showcase info, requires authentication
+app.post("/admin-login", auth.login); // Admin login route
+app.post("/send-mail", sendMail); // Send an email
+app.get("/blog", blog); // Get blog content
 app.post(
   "/add-gallery-item",
-  [auth.isAuth, uploadMedia.single("file")],
+  [auth.isAuth, uploadMedia.single("file")], // Add a gallery item, requires authentication and file upload
   addItem
 );
 
-app.delete("/remove-gallery-item", [auth.isAuth], deleteItem);
+app.delete("/remove-gallery-item", [auth.isAuth], deleteItem); // Remove a gallery item, requires authentication
 
 app.post(
   "/add-feature-video",
-  [auth.isAuth, uploadVideo.single("file")],
+  [auth.isAuth, uploadVideo.single("file")], // Add a feature video, requires authentication and file upload
   addFeatureVideo
 );
-app.put("/update-feature-video", [auth.isAuth], updateFeatureVideo);
-app.get("/feature-video", getFeatureVideo);
-app.get("/all-feature-video", getallFeatureVideos);
+app.put("/update-feature-video", [auth.isAuth], updateFeatureVideo); // Update a feature video, requires authentication
+app.get("/feature-video", getFeatureVideo); // Get a specific feature video
+app.get("/all-feature-video", getallFeatureVideos); // Get all feature videos
 
-app.post("/add-model", [auth.isAuth, uploadModel.single("file")], addModel);
+app.post("/add-model", [auth.isAuth, uploadModel.single("file")], addModel); // Add a model, requires authentication and file upload
 
-// check these every day at 12:00 am
+// Schedule a cron job to update the store every day at 12:00 AM
 cron.schedule("0 0 */24 * * *", () => {
   updateStore("/public/design/store.json", "/public/assets/models/design");
   updateStore("/public/misc/store.json", "/public/assets/models/misc");
 });
 
-//const sslServer = https.createServer({
-//  key: fs.readFileSync(path.join(__dirname,'cert','key.pem')),
-//    cert: fs.readFileSync(path.join(__dirname,'cert','dxadly_net.pem-chain')),
-//  },
-//  app
-//)
+// Uncommented code to create and start an HTTPS server using SSL certificates
+// const sslServer = https.createServer({
+//   key: fs.readFileSync(path.join(__dirname,'cert','key.pem')),
+//   cert: fs.readFileSync(path.join(__dirname,'cert','dxadly_net.pem-chain')),
+// },
+// app
+// )
+// sslServer.listen(3000, ()=> console.log('Started secure server on port 3000'));
 
-//sslServer.listen(3000, ()=> console.log('Started secure server on port 3000'));
-
+// Start the Express server on the specified port, or default to port 3000
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`app is listening on port ${PORT}`));

@@ -1,144 +1,127 @@
+// Import track list from external file
 import tracks from "./songLists.js";
+
+// Select a random track to start with
 let trackNo = Math.floor(Math.random() * tracks.length);
 
-$(document).ready(function () {
-  $(".button.bottom, .button.close").on("click", function () {
-    $(".player").toggleClass("active");
-  });
-});
-
-/*EVERYTHING BELOW IS ALL LOGIC FOR SOUNDCLOUD*/
-
-renderSongList();
-
-function renderSongList() {
-  let html = "";
-  tracks.forEach((track) => {
-    html += renderSong(track);
-  });
-
-  document.querySelector(".list ul").innerHTML = html;
-}
-
-function renderSong({ artist, title, imgSrc, duration }) {
-  const dur = duration.split(":");
-  const html = `
-      <li class="song">
-        <img
-          src="${imgSrc}"
-        />
-        <div class="info">
-          <h2 class="artist">${artist}</h2>
-          <p class="song">${title}</p>
-        </div>
-        <div class="play">
-          <i aria-hidden="true" class="fa fa-play"></i
-          ><i aria-hidden="true" class="fa fa-pause"></i>
-        </div>
-        <p class="duration">${dur[0]}m ${dur[1]}s</p>
-      </li>
-      `;
-  return html;
-}
-
-function player(trackNo) {
+// Player object constructor
+function Player() {
   this.audioplayer = document.getElementById("player");
+  this.currentTrack = trackNo;
 
-  $("#player").attr("src", window.tracks[trackNo].songSrc);
-
+  // Toggle play/pause
   this.togglePlay = function () {
-    $(".play").toggleClass("active");
+    const playButton = document.querySelector(".play");
+    playButton.classList.toggle("active");
     if (this.audioplayer.paused) this.play();
     else this.pause();
   };
 
+  // Play function
   this.play = function () {
-    $(".play").addClass("active");
+    document.querySelector(".play").classList.add("active");
     this.audioplayer.play();
-    $(".list .song.current").addClass("playing");
+    document.querySelector(".list .song.current").classList.add("playing");
   };
 
+  // Pause function
   this.pause = function () {
-    $(".play").removeClass("active");
+    document.querySelector(".play").classList.remove("active");
     this.audioplayer.pause();
-    $(".list .song.current").removeClass("playing");
+    document.querySelector(".list .song.current").classList.remove("playing");
   };
 
+  // Set a specific song
   this.setSong = function (trackNo) {
-    window.currentTrack = trackNo;
-    $("#player").attr("src", window.tracks[trackNo].songSrc);
-    if ($(".play").hasClass("active")) this.play();
+    this.currentTrack = trackNo;
+    this.audioplayer.src = tracks[trackNo].songSrc;
+    if (document.querySelector(".play").classList.contains("active")) this.play();
     this.updateList();
   };
 
+  // Play next song
   this.nextSong = function () {
-    if (window.currentTrack < window.tracks.length - 1) window.currentTrack++;
-    var id = window.currentTrack;
-    $("#player").attr("src", window.tracks[id].songSrc);
-    this.updateList();
-    if ($(".play").hasClass("active")) this.play();
+    if (this.currentTrack < tracks.length - 1) this.currentTrack++;
+    this.setSong(this.currentTrack);
   };
 
+  // Play previous song
   this.prevSong = function () {
-    if (window.currentTrack > 0) window.currentTrack--;
-    var id = window.currentTrack;
-    $("#player").attr("src", window.tracks[id].songSrc);
-    this.updateList();
-    if ($(".play").hasClass("active")) this.play();
+    if (this.currentTrack > 0) this.currentTrack--;
+    this.setSong(this.currentTrack);
   };
 
+  // Update the song list UI
   this.updateList = function () {
-    $(".list li.song.current").removeClass("current");
-    $(".list li.song").eq(window.currentTrack).addClass("current");
-    var track = window.tracks[window.currentTrack];
-    if (track.imgSrc !== null)
-      $(".controller > .info-content img").attr(
-        "src",
-        track.imgSrc.replace("large", "t500x500")
-      );
-    else $(".controller > .info-content img").attr("src", "");
-    $(".controller > .info-content .artist").html(track.artist);
-    $(".controller > .info-content .song").html(track.title);
-    $(".progress-bar > .progress").animate(
-      {
-        width: "0%",
-      },
-      1000
-    );
+    document.querySelectorAll(".list li.song").forEach(el => el.classList.remove("current"));
+    document.querySelectorAll(".list li.song")[this.currentTrack].classList.add("current");
+    const track = tracks[this.currentTrack];
+    const infoImg = document.querySelector(".controller > .info-content img");
+    infoImg.src = track.imgSrc ? track.imgSrc.replace("large", "t500x500") : "";
+    document.querySelector(".controller > .info-content .artist").textContent = track.artist;
+    document.querySelector(".controller > .info-content .song").textContent = track.title;
+    document.querySelector(".progress-bar > .progress").style.width = "0%";
   };
 }
 
-$(document).ready(function () {
-  window.tracks = tracks;
-  window.currentTrack = trackNo;
-  var Player = new player(window.currentTrack);
-  Player.updateList();
+// Function to render the entire song list
+function renderSongList() {
+  const songListContainer = document.querySelector(".list ul");
+  songListContainer.innerHTML = tracks.map((track, index) => renderSong(track, index)).join("");
+}
 
-  // $(".list .song.current").addClass("playing");
+// Function to render a single song item
+function renderSong({ artist, title, imgSrc, duration }, index) {
+  const [minutes, seconds] = duration.split(":");
+  return `
+    <li class="song" data-index="${index}">
+      <img src="${imgSrc}" alt="${title} by ${artist}" />
+      <div class="info">
+        <h2 class="artist">${artist}</h2>
+        <p class="song">${title}</p>
+      </div>
+      <div class="play">
+        <i aria-hidden="true" class="fa fa-play"></i>
+        <i aria-hidden="true" class="fa fa-pause"></i>
+      </div>
+      <p class="duration">${minutes}m ${seconds}s</p>
+    </li>
+  `;
+}
 
-  $(".play").click(function () {
-    Player.togglePlay();
-  });
-  $(".next").click(function () {
-    Player.nextSong();
-  });
-  $(".previous").click(function () {
-    Player.prevSong();
-  });
-  $(".list li.song").click(function () {
-    var id = $(this).index();
-    Player.setSong(id);
-    Player.play();
-  });
+// Initialize the player when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  const player = new Player();
+  renderSongList();
+  player.updateList();
 
-  $("#player").on("timeupdate", function (event) {
-    var progress = (this.currentTime / this.duration) * 100;
-    $(".progress-bar > .progress").css({
-      width: progress + "%",
+  // Toggle player visibility on button click
+  document.querySelectorAll(".button.bottom, .button.close").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelector(".player").classList.toggle("active");
     });
   });
 
-  $("#player").bind("ended", function () {
-    Player.nextSong();
+  // Event listeners for player controls
+  document.querySelector(".play").addEventListener("click", () => player.togglePlay());
+  document.querySelector(".next").addEventListener("click", () => player.nextSong());
+  document.querySelector(".previous").addEventListener("click", () => player.prevSong());
+
+  document.querySelector(".list").addEventListener("click", (event) => {
+    const songItem = event.target.closest(".song");
+    if (songItem) {
+      const id = parseInt(songItem.dataset.index);
+      player.setSong(id);
+      player.play();
+    }
   });
+
+  // Update progress bar as song plays
+  player.audioplayer.addEventListener("timeupdate", function () {
+    const progress = (this.currentTime / this.duration) * 100;
+    document.querySelector(".progress-bar > .progress").style.width = `${progress}%`;
+  });
+
+  // Play next song when current song ends
+  player.audioplayer.addEventListener("ended", () => player.nextSong());
 });

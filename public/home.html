@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- External JavaScript resource -->
     <script src="/scripts/csi.min.js"></script>
+    <!-- Metadata for character encoding, browser compatibility, and viewport settings -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- Favicon links for various devices and sizes -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/assets/favicons/apple-touch-
-icon.png"
+      href="/assets/favicons/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/assets/favicons/
-favicon-32x32.png"
+      href="/assets/favicons/favicon-32x32.png"
     />
     <link
       rel="icon"
-      F
       type="image/png"
       sizes="16x16"
-      href="/assets/favicons/
-favicon-16x16.png"
+      href="/assets/favicons/favicon-16x16.png"
     />
-
+    <!-- Web application manifest and Safari pinning icon -->
     <link rel="manifest" href="/assets/favicons/site.webmanifest" />
     <link
       rel="mask-icon"
@@ -35,7 +33,7 @@ favicon-16x16.png"
       color="#5bbad5"
     />
     <meta name="msapplication-TileColor" content="#da532c" />
-
+    <!-- External CSS libraries for icons and fonts -->
     <link
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
       type="text/css"
@@ -46,18 +44,19 @@ favicon-16x16.png"
       type="text/css"
       rel="stylesheet"
     />
-
+    <!-- Internal stylesheet links -->
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
     <link rel="stylesheet" href="/styles/dirs.css" />
     <link rel="stylesheet" href="/styles/elements.css" />
     <link rel="stylesheet" href="/styles/showcase.css" />
-
+    <!-- Page title -->
     <title>DXADLY</title>
   </head>
 
   <body>
+    <!-- Header section with navigation links -->
     <header>
       <div class="headline">
         <h1><a href="/home.html">DXADLY</a></h1>
@@ -67,18 +66,18 @@ favicon-16x16.png"
         <a href="contact.html">CONTACT</a>
       </nav>
     </header>
-
+    <!-- Loading animation placeholder -->
     <div class="loading">
       <p>Loading...</p>
       <p class="loading-per">0% loaded</p>
     </div>
-
+    <!-- Canvas for graphical content (e.g., animations, drawings) -->
     <canvas id="scene"></canvas>
-
+    <!-- Placeholder for additional information -->
     <div class="infobox">
       <p></p>
     </div>
-
+    <!-- Navigation controls -->
     <div class="control-con">
       <button class="cNext" disabled>
         <img src="/assets/icons/arrow.png" alt="previous icon" />
@@ -93,7 +92,7 @@ favicon-16x16.png"
         <img src="/assets/icons/arrow.png" alt="Down icon" />
       </button>
     </div>
-
+    <!-- Section for showcasing content with modal and popup for videos and images -->
     <div class="showcase">
       <div class="showcase-grid"></div>
       <div class="modal"></div>
@@ -110,8 +109,9 @@ favicon-16x16.png"
         </div>
       </div>
     </div>
-
+    <!-- Footer include for reuse -->
     <div data-include="include/main-footer.html"></div>
+    <!-- JavaScript modules for page functionality -->
     <script type="module" src="/scripts/script.module.js"></script>
     <script type="module" src="/scripts/newtonBalls.js"></script>
     <script type="module" src="/scripts/showcase.js"></script>

@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Character encoding and compatibility settings -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
+    <!-- Favicon settings for various devices -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/assets/favicons/apple-touch-
-icon.png"
+      href="/assets/favicons/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/assets/favicons/
-favicon-32x32.png"
+      href="/assets/favicons/favicon-32x32.png"
     />
     <link
       rel="icon"
-      F
       type="image/png"
       sizes="16x16"
-      href="/assets/favicons/
-favicon-16x16.png"
+      href="/assets/favicons/favicon-16x16.png"
     />
-
     <link rel="manifest" href="/assets/favicons/site.webmanifest" />
     <link
       rel="mask-icon"
@@ -34,7 +31,8 @@ favicon-16x16.png"
       color="#5bbad5"
     />
     <meta name="msapplication-TileColor" content="#da532c" />
-
+    
+    <!-- External CSS libraries -->
     <link
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
       type="text/css"
@@ -45,51 +43,56 @@ favicon-16x16.png"
       type="text/css"
       rel="stylesheet"
     />
-
+    
+    <!-- Custom CSS files -->
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
     <link rel="stylesheet" href="/styles/dirs.css" />
     <link rel="stylesheet" href="/styles/elements.css" />
     <link rel="stylesheet" href="/styles/single-model.css" />
-
+    
+    <!-- Page title -->
     <title>DXADLY</title>
   </head>
-
   <body>
+    <!-- Header section -->
     <header>
+      <!-- Social media icons (commented out) -->
       <div class="icons">
-        <!-- <a href="https://twitter.com/dxadly?lang=en" target="_blank">
-          <img src="assets/icons/twitter.png" alt="Twitter" />
-        </a>
-        <a href="https://www.instagram.com/dxadlyy/" target="_blank">
-          <img src="assets/icons/instagram.png" alt="Instagram" />
-        </a>
-        <a href="https://soundcloud.com/dxadlyy" target="_blank">
-          <img src="assets/icons/sound-cloud.png" alt="Music" />
-        </a> -->
+        <!-- Social media links are currently commented out -->
       </div>
+      
+      <!-- Main headline and portfolio link -->
       <div class="headline">
         <h1><a href="/home.html">DXADLY</a></h1>
         <h3><a href="/portfolio" target="_self"> PORTFOLIO </a></h3>
       </div>
+      
+      <!-- Navigation -->
       <nav>
         <a href="contact.html">CONTACT</a>
       </nav>
     </header>
-
+    
+    <!-- Main content container -->
     <div class="container">
+      <!-- Canvas for single model display -->
       <canvas id="single-model"></canvas>
+      
+      <!-- Information box -->
       <div class="info-box">
         <h1>Info About the Model</h1>
         <p class="info"></p>
       </div>
     </div>
-
+    
+    <!-- Footer section -->
     <footer class="main-footer">
       <p>©️ DXADLY David ADLY 2022 DXADLY COPYRIGHT 2022</p>
     </footer>
-
+    
+    <!-- JavaScript module for single model functionality -->
     <script type="module" src="/scripts/single-model.module.js"></script>
   </body>
 </html>

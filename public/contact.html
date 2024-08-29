@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- The DOCTYPE declaration defines the document type and version of HTML (HTML5 in this case). -->
+  
   <head>
+    <!-- The <head> element contains meta-information about the document. -->
+    
     <meta charset="UTF-8" />
+    <!-- Specifies the character encoding for the HTML document, ensuring that text is properly displayed. -->
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Ensures compatibility with the latest IE rendering engine and other browsers. -->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Sets the viewport to make the page responsive to different screen sizes, especially for mobile devices. -->
+    
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/contact.css" />
+    <!-- Links to external CSS files for styling the page. Multiple stylesheets are used for different parts of the page. -->
+    
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/assets/favicons/
-favicon-32x32.png"
+      href="/assets/favicons/favicon-32x32.png"
     />
+    <!-- Specifies the favicon for the website, which is the small icon displayed in the browser tab. -->
+    
     <title>Contact Me</title>
+    <!-- The title of the webpage, displayed in the browser tab. -->
   </head>
+  
   <body>
+    <!-- The <body> element contains the content of the document that will be displayed to users. -->
+    
     <header>
+      <!-- The <header> element contains introductory content or navigational links. -->
+      
       <div class="icons">
-        <!-- <a href="https://twitter.com/dxadly?lang=en" target="_blank">
+        <!-- A container for social media icons. These links are currently commented out, but if enabled, they would link to social media profiles. -->
+        
+        <!-- 
+        <a href="https://twitter.com/dxadly?lang=en" target="_blank">
           <img src="/assets/icons/twitter.png" alt="Twitter" />
         </a>
         <a href="https://www.instagram.com/dxadlyy/" target="_blank">
@@ -27,50 +49,90 @@ favicon-32x32.png"
         </a>
         <a href="https://soundcloud.com/dxadlyy" target="_blank">
           <img src="/assets/icons/sound-cloud.png" alt="Music" />
-        </a> -->
+        </a> 
+        -->
       </div>
+      
       <div class="headline">
+        <!-- This section contains the main heading and a link to the portfolio page. -->
+        
         <h1><a href="/home.html">DXADLY</a></h1>
-        <h3><a href="/portfolio" target="_self"> PORTFOLIO </a></h3>
+        <!-- The main title, which is a link back to the homepage. -->
+        
+        <h3><a href="/portfolio" target="_self">PORTFOLIO</a></h3>
+        <!-- A subheading that links to the portfolio page. -->
       </div>
+      
       <nav>
+        <!-- Navigation menu linking to the contact page. -->
+        
         <a href="contact.html">CONTACT</a>
       </nav>
     </header>
+    
     <div id="feedback-success" class="">Successfully send the msg</div>
-    `
-
+    <!-- A div to display a success message after a form submission. The class is currently empty. -->
+    
     <div class="contact-container">
+      <!-- Main container for the contact form. -->
+      
       <h1>Contact Me</h1>
+      <!-- The main heading for the contact form section. -->
+      
       <form class="contact-form">
-        <!-- <label for="name">Name</label> -->
-        <!-- <input type="text" autofocus id="name" placeholder="Your Name" /> -->
+        <!-- The form element for collecting user inputs. -->
 
+        <!-- The following label and input fields for "Name" are currently commented out. If uncommented, they would allow users to input their name. -->
+        
+        <!-- 
+        <label for="name">Name</label>
+        <input type="text" autofocus id="name" placeholder="Your Name" />
+        -->
+        
         <label for="email" aria-required="true">Email</label>
+        <!-- Label for the email input field. aria-required="true" indicates that the email field is required. -->
+        
         <input
           type="email"
           autofocus
           id="email"
           placeholder="Your Email Address"
         />
+        <!-- Input field for the user's email address. -->
+
         <small class="err-msg"></small>
+        <!-- Placeholder for displaying error messages related to the email field. -->
 
         <label for="subject">Subject</label>
+        <!-- Label for the subject input field. -->
+        
         <input type="text" id="subject" placeholder="Subject" />
+        <!-- Input field for the subject of the message. -->
 
         <small class="err-msg"></small>
+        <!-- Placeholder for displaying error messages related to the subject field. -->
+        
         <label for="message" aria-required="true">Message</label>
+        <!-- Label for the message textarea. aria-required="true" indicates that the message field is required. -->
+        
         <textarea
           id="message"
           placeholder="Please type your message here"
         ></textarea>
+        <!-- Textarea for the user to input their message. -->
 
         <small class="err-msg"></small>
+        <!-- Placeholder for displaying error messages related to the message field. -->
+
         <button id="submit">SEND</button>
+        <!-- The submit button for the form. -->
 
         <small class="err-msg"></small>
+        <!-- Placeholder for displaying a generic error message. -->
       </form>
     </div>
+    
     <script src="/scripts/contact.js"></script>
+    <!-- Link to an external JavaScript file that handles form submission logic and validation. -->
   </body>
 </html>
