@@ -26,7 +26,7 @@
         }
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 120px auto 0; /* Increased top margin to prevent overlap with header */
             padding: 20px;
         }
         .blog-header {
@@ -53,6 +53,16 @@
         .blog-post .date {
             color: #7f8c8d;
             font-size: 0.9em;
+        }
+        /* New styles for header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
     </style>
 </head>
