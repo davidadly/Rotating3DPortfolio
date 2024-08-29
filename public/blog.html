@@ -188,6 +188,7 @@
                     `;
                     blogPostsContainer.appendChild(postElement);
                 });
+                blogPostsContainer.scrollTop = 0; // Scroll to the top after rendering
             }
 
             function escapeHTML(str) {
