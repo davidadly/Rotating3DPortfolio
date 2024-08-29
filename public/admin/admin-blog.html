@@ -6,25 +6,26 @@
   <title>Admin Dashboard</title>
   <style>
     :root {
-      --primary-color: #bb86fc;
-      --background-color: #121212;
-      --surface-color: #1e1e1e;
-      --on-surface-color: #ffffff;
-      --error-color: #cf6679;
+      --background-color: #f5f5f5;
+      --text-color: #333333;
+      --accent-color: #3498db;
+      --card-background: #ffffff;
+      --input-background: #e0e0e0;
+      --error-color: #e74c3c;
     }
     body {
       background-color: var(--background-color);
-      color: var(--on-surface-color);
+      color: var(--text-color);
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
       line-height: 1.6;
     }
     h2 {
-      color: var(--primary-color);
+      color: var(--accent-color);
     }
     form, .blog-post {
-      background-color: var(--surface-color);
+      background-color: var(--card-background);
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 20px;
@@ -36,17 +37,17 @@
       margin-bottom: 15px;
     }
     input, textarea {
-      background-color: #333333;
-      border: 1px solid #444444;
-      color: var(--on-surface-color);
+      background-color: var(--input-background);
+      border: 1px solid #cccccc;
+      color: var(--text-color);
       padding: 10px;
       border-radius: 4px;
       font-size: 16px;
     }
     button {
-      background-color: var(--primary-color);
+      background-color: var(--accent-color);
       border: none;
-      color: #000000;
+      color: #ffffff;
       padding: 10px;
       border-radius: 4px;
       cursor: pointer;
@@ -54,22 +55,22 @@
       transition: background-color 0.3s ease;
     }
     button:hover {
-      background-color: #9b59b6;
+      background-color: #2980b9;
     }
     .blog-post h3 {
-      color: var(--primary-color);
+      color: var(--accent-color);
       margin-top: 0;
     }
     .blog-post button {
       background-color: var(--error-color);
-      color: var(--on-surface-color);
+      color: #ffffff;
     }
     .blog-post button:hover {
-      background-color: #b4424f;
+      background-color: #c0392b;
     }
     .separator {
       margin: 20px 0;
-      border-top: 1px solid #333333;
+      border-top: 1px solid #cccccc;
     }
     .blog-post img {
       max-width: 100%;
