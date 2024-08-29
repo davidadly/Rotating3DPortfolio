@@ -22,6 +22,38 @@
             --accent-color: #007acc; /* Blue accent color */
             --card-background: #ffffff; /* White */
         }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: var(--card-background);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            padding-top: 60px;
+            z-index: 1000;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+        .sidebar ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar ul li a:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+        .container {
+            margin-left: 220px; /* Adjusted to make space for the sidebar */
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
@@ -102,6 +134,15 @@
         </nav>
     </header>
 
+    <div class="sidebar">
+        <ul>
+            <li><a href="/home.html">Home</a></li>
+            <li><a href="/portfolio.html">Portfolio</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
+    </div>
     <div class="container">
         <div class="blog-header">
             <h2>Daily Blog</h2>
