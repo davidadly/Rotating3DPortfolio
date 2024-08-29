@@ -90,36 +90,71 @@
         padding: 15px;
       }
     }
+    #loginForm {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    #adminContent {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <h2>Add New Blog Post</h2>
-  <form id="blogForm">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required>
-    
-    <label for="date">Date:</label>
-    <input type="date" id="date" name="date" required>
-    
-    <label for="content">Content:</label>
-    <textarea id="content" name="content" required rows="5"></textarea>
-    
-    <label for="image">Image:</label>
-    <input type="file" id="image" name="image" accept="image/*">
-    <img id="imagePreview" src="" alt="Image preview" style="display: none;">
-    
-    <button type="submit">Add Blog Post</button>
-  </form>
+  <div id="loginForm">
+    <h2>Admin Login</h2>
+    <form id="passwordForm">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 
-  <h2>Blog Posts</h2>
-  <div id="blogPostsContainer"></div>
+  <div id="adminContent">
+    <h2>Add New Blog Post</h2>
+    <form id="blogForm">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+      
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+      
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" required rows="5"></textarea>
+      
+      <label for="image">Image:</label>
+      <input type="file" id="image" name="image" accept="image/*">
+      <img id="imagePreview" src="" alt="Image preview" style="display: none;">
+      
+      <button type="submit">Add Blog Post</button>
+    </form>
+
+    <h2>Blog Posts</h2>
+    <div id="blogPostsContainer"></div>
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('loginForm');
+      const adminContent = document.getElementById('adminContent');
+      const passwordForm = document.getElementById('passwordForm');
       const blogForm = document.getElementById('blogForm');
       const blogPostsContainer = document.getElementById('blogPostsContainer');
       const imageInput = document.getElementById('image');
       const imagePreview = document.getElementById('imagePreview');
+
+      const correctPassword = 'admin123'; // Change this to your desired password
+
+      passwordForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const password = document.getElementById('password').value;
+        if (password === correctPassword) {
+          loginForm.style.display = 'none';
+          adminContent.style.display = 'block';
+          renderBlogPosts();
+        } else {
+          alert('Incorrect password. Please try again.');
+        }
+      });
 
       imageInput.addEventListener('change', function(event) {
         const file = event.target.files[0];
@@ -213,8 +248,6 @@
           renderBlogPosts();
         }
       };
-
-      renderBlogPosts();
     });
   </script>
 </body>
