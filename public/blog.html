@@ -21,6 +21,10 @@
             --text-color: #2c2c2c; /* Dark gray */
             --accent-color: #007acc; /* Blue accent color */
             --card-background: #ffffff; /* White */
+            --header-background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+        }
+        html {
+            scroll-behavior: smooth;
         }
         .sidebar {
             position: fixed;
@@ -54,6 +58,7 @@
         }
         .container {
             margin-left: 220px; /* Adjusted to make space for the sidebar */
+        }
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
@@ -101,15 +106,19 @@
             margin-top: 20px; /* Increased margin for more white space */
             border-radius: 4px;
         }
-        /* New styles for header */
+        /* Updated styles for header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background-color: var(--card-background);
+            background-color: var(--header-background);
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        header:hover {
+            background-color: var(--card-background);
         }
         a {
             color: var(--accent-color);
