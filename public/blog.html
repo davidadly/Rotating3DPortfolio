@@ -158,8 +158,8 @@
 
             function renderBlogPosts() {
                 blogPostsContainer.innerHTML = '';
-                blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort posts by date, newest first
-                blogPosts.forEach((post) => {
+                const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort posts by date, newest first
+                sortedPosts.forEach((post) => {
                     const postElement = document.createElement('div');
                     postElement.className = 'blog-post';
                     postElement.innerHTML = `
