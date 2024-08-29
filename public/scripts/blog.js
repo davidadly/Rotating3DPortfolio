@@ -43,8 +43,8 @@ function createPosts(posts) {
   // If there are no posts, exit the function
   if (!posts) return;
 
-  // Loop through each post in the array in reverse order to show the newest first
-  posts.reverse().forEach((post) => {
+  // Loop through each post in the array to show the newest first
+  posts.forEach((post) => {
     // Transform the raw post data into the desired format
     const item = transformPost(post);
     // Create the HTML for the post using the transformed data

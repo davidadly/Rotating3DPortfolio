@@ -215,7 +215,7 @@
       function renderBlogPosts() {
         blogPostsContainer.innerHTML = '';
         const blogPosts = getBlogPosts();
-        blogPosts.forEach(post => {
+        blogPosts.reverse().forEach(post => {
           const postElement = document.createElement('div');
           postElement.className = 'blog-post';
           postElement.innerHTML = `
