@@ -40,48 +40,72 @@
     />
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/header.css" />
-    <link rel="stylesheet" href="/styles/dirs.css" />
-    <link rel="stylesheet" href="/styles/elements.css" />
-    <link rel="stylesheet" href="/styles/blog.css" />
     <title>Blog Archive</title>
     <style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
       .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         max-width: 800px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 20px;
       }
-      .blogs {
-        width: 100%;
+      .blog-header {
+        text-align: center;
+        margin-bottom: 40px;
       }
       .blog-post {
-        text-align: center;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        padding: 20px;
         margin-bottom: 30px;
+      }
+      .blog-post h3 {
+        margin-top: 0;
+        color: #2c3e50;
+      }
+      .blog-post .date {
+        color: #7f8c8d;
+        font-size: 0.9em;
       }
       .blog-post img {
         max-width: 100%;
         height: auto;
-        margin-top: 10px;
+        margin-top: 15px;
         border-radius: 4px;
       }
       .pagination {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 20px;
-        width: 100%;
+        margin-top: 30px;
       }
       .pagination button {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
         margin: 0 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .pagination button:hover {
+        background-color: #2980b9;
+      }
+      .pagination button:disabled {
+        background-color: #bdc3c7;
+        cursor: not-allowed;
       }
       #pageInfo {
-        margin: 0 10px;
-      }
-      .separator {
-        width: 100%;
-        text-align: center;
+        margin: 0 15px;
+        color: #7f8c8d;
       }
     </style>
   </head>
@@ -101,16 +125,10 @@
 
     <div class="container">
       <div class="blog-header">
-        <div class="separator">
-          ======================================
-        </div>
-        <p>Daily Blog </p>
-        <div class="separator">
-          ======================================
-        </div>
+        <h2>Daily Blog</h2>
       </div>
 
-      <div class="blogs" id="blogPostsContainer"></div>
+      <div id="blogPostsContainer"></div>
       <div class="pagination">
         <button id="prevPage" disabled>Previous</button>
         <span id="pageInfo"></span>
@@ -140,16 +158,10 @@
             const postElement = document.createElement('div');
             postElement.className = 'blog-post';
             postElement.innerHTML = `
-              <div class="separator">
-                ======================================
-              </div>
               <h3>${escapeHTML(post.title)}</h3>
-              <p class="date"><strong>Date:</strong> ${post.date}</p>
+              <p class="date">${post.date}</p>
               <p>${escapeHTML(post.content)}</p>
               ${post.image ? `<img src="${post.image}" alt="Blog post image">` : ''}
-              <div class="separator">
-                ======================================
-              </div>
             `;
             blogPostsContainer.appendChild(postElement);
           });
