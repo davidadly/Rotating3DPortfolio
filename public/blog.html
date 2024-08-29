@@ -26,6 +26,50 @@
             --sidebar-background: rgba(240, 248, 255, 0.8); /* Transparent navy blue for sidebar */
         }
 
+        .blog-post img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px; /* Increased margin for more white space */
+            border-radius: 4px;
+            filter: brightness(0.9) contrast(1.1) saturate(1.2);
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5); /* Soft vignette effect */
+            cursor: pointer; /* Indicate that the image is clickable */
+            transition: filter 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-post img:hover {
+            filter: brightness(1) contrast(1.2) saturate(1.4);
+            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.7); /* Stronger vignette on hover */
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .blog-post + .blog-post {
             margin-top: 50px; /* Space between posts */
             border-top: 1px solid rgba(0, 0, 0, 0.1); /* Thin line divider */
@@ -218,6 +262,28 @@
             }
 
             renderBlogPosts();
+        });
+
+        // Lightbox functionality
+        const blogPostsContainer = document.getElementById('blogPostsContainer');
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        document.body.appendChild(lightbox);
+
+        blogPostsContainer.addEventListener('click', (e) => {
+            if (e.target.tagName === 'IMG') {
+                const img = document.createElement('img');
+                img.src = e.target.src;
+                while (lightbox.firstChild) {
+                    lightbox.removeChild(lightbox.firstChild);
+                }
+                lightbox.appendChild(img);
+                lightbox.classList.add('active');
+            }
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
         });
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
