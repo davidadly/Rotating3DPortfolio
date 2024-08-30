@@ -158,3 +158,46 @@
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+.music-folder-dropdown {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.music-folder-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.music-folder-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.music-folder-list.hidden {
+  display: none;
+}
+
+.music-folder-list div {
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.music-folder-list div:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

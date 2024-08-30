@@ -94,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const volumeSlider = document.getElementById('volumeSlider');
   const playlistToggle = document.getElementById('playlistToggle');
   const playlist = document.querySelector('.playlist');
+  const musicFolderToggle = document.getElementById('musicFolderToggle');
+  const musicFolderList = document.getElementById('musicFolderList');
 
   let tracks = [];
   let currentTrackIndex = 0;
@@ -107,13 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       tracks = await response.json();
       displayTracks();
+      displayMusicFolder();
       loadTrack(currentTrackIndex);
     } catch (error) {
       console.error('Error loading tracks:', error);
     }
   }
 
-  // Function to display tracks in the list
+  // Function to display tracks in the playlist
   function displayTracks() {
     trackList.innerHTML = '';
     tracks.forEach((track, index) => {
@@ -126,6 +129,23 @@ document.addEventListener('DOMContentLoaded', () => {
         updatePlayPauseIcon();
       });
       trackList.appendChild(li);
+    });
+  }
+
+  // Function to display tracks in the music folder dropdown
+  function displayMusicFolder() {
+    musicFolderList.innerHTML = '';
+    tracks.forEach((track, index) => {
+      const div = document.createElement('div');
+      div.textContent = track.name;
+      div.addEventListener('click', () => {
+        currentTrackIndex = index;
+        loadTrack(currentTrackIndex);
+        audioPlayer.play();
+        updatePlayPauseIcon();
+        musicFolderList.classList.add('hidden');
+      });
+      musicFolderList.appendChild(div);
     });
   }
 
@@ -214,6 +234,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Playlist toggle
   playlistToggle.addEventListener('click', () => {
     playlist.classList.toggle('hidden');
+  });
+
+  // Music folder toggle
+  musicFolderToggle.addEventListener('click', () => {
+    musicFolderList.classList.toggle('hidden');
   });
 
   // Load tracks when the page loads
