@@ -116,6 +116,49 @@
             visibility: visible;
         }
 
+        .highlight-mode {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .highlight-mode.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .highlight-mode img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-mode.active img {
+            transform: scale(1);
+        }
+
+        .highlight-mode .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
         .blog-post + .blog-post {
             margin-top: 50px; /* Space between posts */
             border-top: 1px solid rgba(0, 0, 0, 0.1); /* Thin line divider */
@@ -416,6 +459,31 @@
         lightbox.addEventListener('click', () => {
             lightbox.classList.remove('active');
         });
+
+        // Highlight Mode
+        const highlightMode = document.createElement('div');
+        highlightMode.className = 'highlight-mode';
+        highlightMode.innerHTML = '<span class="close-btn">&times;</span>';
+        document.body.appendChild(highlightMode);
+
+        blogPostsContainer.addEventListener('click', (e) => {
+            if (e.target.tagName === 'IMG') {
+                const img = document.createElement('img');
+                img.src = e.target.src;
+                while (highlightMode.children.length > 1) {
+                    highlightMode.removeChild(highlightMode.lastChild);
+                }
+                highlightMode.appendChild(img);
+                highlightMode.classList.add('active');
+            }
+        });
+
+        highlightMode.addEventListener('click', (e) => {
+            if (e.target === highlightMode || e.target.className === 'close-btn') {
+                highlightMode.classList.remove('active');
+            }
+        });
+
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
