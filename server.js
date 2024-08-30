@@ -99,17 +99,36 @@ const port = 3000;
 
 app.use(express.static('public'));
 
+const { promisify } = require('util');
+const mm = require('music-metadata');
+
 app.get('/api/tracks', async (req, res) => {
   try {
     const musicDir = path.join(__dirname, 'public', 'music');
     const files = await fs.readdir(musicDir);
-    const tracks = files
+    const tracks = await Promise.all(files
       .filter(file => path.extname(file).toLowerCase() === '.mp3')
-      .map(file => ({
-        name: path.basename(file, '.mp3'),
-        url: `/music/${file}`,
-        artist: 'Unknown Artist', // You can add metadata parsing here if needed
-        albumArt: '/assets/images/default-album-art.jpg' // Add a default album art
+      .map(async file => {
+        const filePath = path.join(musicDir, file);
+        try {
+          const metadata = await mm.parseFile(filePath);
+          return {
+            name: metadata.common.title || path.basename(file, '.mp3'),
+            url: `/music/${file}`,
+            artist: metadata.common.artist || 'Unknown Artist',
+            albumArt: metadata.common.picture && metadata.common.picture.length > 0
+              ? `data:${metadata.common.picture[0].format};base64,${metadata.common.picture[0].data.toString('base64')}`
+              : '/assets/images/default-album-art.jpg'
+          };
+        } catch (err) {
+          console.error(`Error parsing metadata for ${file}:`, err);
+          return {
+            name: path.basename(file, '.mp3'),
+            url: `/music/${file}`,
+            artist: 'Unknown Artist',
+            albumArt: '/assets/images/default-album-art.jpg'
+          };
+        }
       }));
     res.json(tracks);
   } catch (error) {
