@@ -26,6 +26,27 @@
             --header-background: rgba(240, 248, 255, 0.9); /* Slightly transparent navy blue */
             --sidebar-background: rgba(240, 248, 255, 0.8); /* Transparent navy blue for sidebar */
         }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        header a {
+            padding: 8px 12px;
+            margin: 0 5px;
+            font-size: 0.9em;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+        header a:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+        .headline h3 a {
+            font-size: 0.8em;
+        }
         #scroll-indicator {
             position: fixed;
             bottom: 20px;
@@ -359,10 +380,13 @@
         </div>
         <div class="headline">
             <h1><a href="/home.html">David Adly Portfolio</a></h1>
-            <h3><a href="/home.html" target="_self" style="color: #000000;"> HOME </a></h3>
+            <h3><a href="/home.html" target="_self"> HOME </a></h3>
         </div>
         <nav>
-            <a href="contact.html">CONTACT</a>
+            <a href="/blog.html">BLOG</a>
+            <a href="/portfolio.html">PORTFOLIO</a>
+            <a href="/about.html">ABOUT</a>
+            <a href="/contact.html">CONTACT</a>
         </nav>
     </header>
 
