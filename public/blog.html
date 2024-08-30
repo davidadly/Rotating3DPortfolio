@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/styles/header.css">
     <title>Blog Archive</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         :root {
             --background-color: #e0e0e0; /* Soft gray */
@@ -273,9 +274,19 @@
                 font-size: 1.2em;
             }
         }
+        #orb-container {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 200px;
+            height: 200px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
+    <div id="orb-container"></div>
     <header>
         <div class="icons">
             <!-- Social media icons -->
