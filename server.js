@@ -136,34 +136,6 @@ app.get('/api/tracks', async (req, res) => {
     await fs.writeFile(musicStoreFile, JSON.stringify(tracks, null, 2));
     
     res.json(tracks);
-  try {
-    const musicDir = path.join(__dirname, 'public', 'music');
-    const files = await fs.readdir(musicDir);
-    const tracks = await Promise.all(files
-      .filter(file => path.extname(file).toLowerCase() === '.mp3')
-      .map(async file => {
-        const filePath = path.join(musicDir, file);
-        try {
-          const metadata = await mm.parseFile(filePath);
-          return {
-            name: metadata.common.title || path.basename(file, '.mp3'),
-            url: `/music/${file}`,
-            artist: metadata.common.artist || 'Unknown Artist',
-            albumArt: metadata.common.picture && metadata.common.picture.length > 0
-              ? `data:${metadata.common.picture[0].format};base64,${metadata.common.picture[0].data.toString('base64')}`
-              : '/assets/images/default-album-art.jpg'
-          };
-        } catch (err) {
-          console.error(`Error parsing metadata for ${file}:`, err);
-          return {
-            name: path.basename(file, '.mp3'),
-            url: `/music/${file}`,
-            artist: 'Unknown Artist',
-            albumArt: '/assets/images/default-album-art.jpg'
-          };
-        }
-      }));
-    res.json(tracks);
   } catch (error) {
     console.error('Error reading music directory:', error);
     res.status(500).json({ error: 'Unable to read music directory' });
