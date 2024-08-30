@@ -81,13 +81,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 document.addEventListener('DOMContentLoaded', () => {
   const audioPlayer = document.getElementById('player');
-  const playButton = document.querySelector('.play');
+  const playPauseButton = document.querySelector('.play-pause');
   const nextButton = document.querySelector('.next');
   const previousButton = document.querySelector('.previous');
-  const progressBar = document.querySelector('.progress-bar .progress');
+  const progressBar = document.querySelector('.progress');
   const trackList = document.getElementById('trackList');
-  const artistElement = document.querySelector('.info .artist');
-  const songElement = document.querySelector('.info .song');
+  const artistElement = document.getElementById('artistName');
+  const songElement = document.getElementById('songName');
+  const albumArt = document.getElementById('albumArt');
+  const currentTimeElement = document.getElementById('currentTime');
+  const durationElement = document.getElementById('duration');
+  const volumeSlider = document.getElementById('volumeSlider');
+  const playlistToggle = document.getElementById('playlistToggle');
+  const playlist = document.querySelector('.playlist');
 
   let tracks = [];
   let currentTrackIndex = 0;
@@ -117,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentTrackIndex = index;
         loadTrack(currentTrackIndex);
         audioPlayer.play();
+        updatePlayPauseIcon();
       });
       trackList.appendChild(li);
     });
@@ -129,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       audioPlayer.src = track.url;
       artistElement.textContent = track.artist;
       songElement.textContent = track.name;
+      albumArt.src = track.albumArt || 'path/to/default/album-art.jpg';
       highlightCurrentTrack();
     }
   }
@@ -146,33 +154,66 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Play/Pause button functionality
-  playButton.addEventListener('click', () => {
+  playPauseButton.addEventListener('click', togglePlayPause);
+
+  function togglePlayPause() {
     if (audioPlayer.paused) {
       audioPlayer.play();
     } else {
       audioPlayer.pause();
     }
-    playButton.classList.toggle('playing');
-  });
+    updatePlayPauseIcon();
+  }
+
+  function updatePlayPauseIcon() {
+    const icon = playPauseButton.querySelector('i');
+    icon.className = audioPlayer.paused ? 'fa fa-play' : 'fa fa-pause';
+  }
 
   // Next button functionality
-  nextButton.addEventListener('click', () => {
+  nextButton.addEventListener('click', playNextTrack);
+
+  function playNextTrack() {
     currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
     loadTrack(currentTrackIndex);
     audioPlayer.play();
-  });
+    updatePlayPauseIcon();
+  }
 
   // Previous button functionality
-  previousButton.addEventListener('click', () => {
+  previousButton.addEventListener('click', playPreviousTrack);
+
+  function playPreviousTrack() {
     currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
     loadTrack(currentTrackIndex);
     audioPlayer.play();
-  });
+    updatePlayPauseIcon();
+  }
 
-  // Update progress bar
-  audioPlayer.addEventListener('timeupdate', () => {
+  // Update progress bar and time
+  audioPlayer.addEventListener('timeupdate', updateProgress);
+
+  function updateProgress() {
     const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
     progressBar.style.width = `${progress}%`;
+    currentTimeElement.textContent = formatTime(audioPlayer.currentTime);
+    durationElement.textContent = formatTime(audioPlayer.duration);
+  }
+
+  function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  // Volume control
+  volumeSlider.addEventListener('input', () => {
+    audioPlayer.volume = volumeSlider.value / 100;
+  });
+
+  // Playlist toggle
+  playlistToggle.addEventListener('click', () => {
+    playlist.classList.toggle('hidden');
   });
 
   // Load tracks when the page loads

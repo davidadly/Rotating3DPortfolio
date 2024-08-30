@@ -34,9 +34,10 @@
   <link rel="stylesheet" href="./styles/style.css" />
   <link rel="stylesheet" href="./styles/header.css" />
   <link rel="stylesheet" href="./styles/soundCloud.css" />
+  <link rel="stylesheet" href="./styles/modern-player.css" />
   
   <!-- Page title -->
-  <title>DXADLY</title>
+  <title>DXADLY - Modern Music Player</title>
 </head>
 
 <body>
@@ -55,82 +56,51 @@
     </nav>
   </header>
 
-  <!-- Music player container -->
-  <div class="player music-player__con">
-    <!-- Play button -->
-    <div class="button play">
-      <i aria-hidden="true" class="fa fa-play"></i><i aria-hidden="true" class="fa fa-pause"></i>
+  <!-- Modern Music Player Container -->
+  <div class="modern-player">
+    <!-- Album Art and Track Info -->
+    <div class="player-header">
+      <img id="albumArt" src="https://i1.sndcdn.com/artworks-000160121089-u63pt0-t500x500.jpg" alt="Album Art" class="album-art" />
+      <div class="track-info">
+        <h2 id="artistName" class="artist">I Am Karate</h2>
+        <p id="songName" class="song">Bitter</p>
+      </div>
     </div>
-    
-    <!-- Menu button -->
-    <div class="button bottom">
-      <i aria-hidden="true" class="fa fa-bars"></i>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="time-info">
+        <span id="currentTime">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
     </div>
-    
-    <!-- Next track button -->
-    <div class="button next">
-      <i aria-hidden="true" class="fa fa-forward"></i>
+
+    <!-- Player Controls -->
+    <div class="controls">
+      <button class="control-btn previous"><i class="fa fa-step-backward"></i></button>
+      <button class="control-btn play-pause"><i class="fa fa-play"></i></button>
+      <button class="control-btn next"><i class="fa fa-step-forward"></i></button>
     </div>
-    
-    <!-- Previous track button -->
-    <div class="button previous">
-      <i aria-hidden="true" class="fa fa-backward"></i>
+
+    <!-- Volume Control -->
+    <div class="volume-control">
+      <i class="fa fa-volume-up"></i>
+      <input type="range" id="volumeSlider" min="0" max="100" value="100">
     </div>
-    
-    <!-- SoundCloud icon -->
-    <i class="fa fa-soundcloud" aria-hidden="true"></i>
-    
-    <!-- Track list -->
-    <div class="list">
+
+    <!-- Playlist Toggle -->
+    <button id="playlistToggle" class="playlist-toggle">
+      <i class="fa fa-list"></i>
+    </button>
+
+    <!-- Playlist -->
+    <div class="playlist hidden">
       <ul id="trackList"></ul>
     </div>
-    
-    <!-- Player controller section -->
-    <div class="controller">
-      <!-- Repeat of previous button (likely for another part of the interface) -->
-      <div class="button previous">
-        <i aria-hidden="true" class="fa fa-backward"></i>
-      </div>
-      
-      <!-- Repeat of play button -->
-      <div class="button play">
-        <i aria-hidden="true" class="fa fa-play"></i><i aria-hidden="true" class="fa fa-pause"></i>
-      </div>
-      
-      <!-- Repeat of next button -->
-      <div class="button next">
-        <i aria-hidden="true" class="fa fa-forward"></i>
-      </div>
-      
-      <!-- Close button for the player -->
-      <div class="button close">
-        <i aria-hidden="true" class="fa fa-close"></i>
-      </div>
-      
-      <!-- Progress bar with waveform background -->
-      <div class="progress-bar">
-        <span class="progress"></span>
-        <div class="wave" style="
-              background-image: url('https://w1.sndcdn.com/8vvxygw3jJov_m.png');
-            "></div>
-      </div>
-      
-      <!-- Track information display -->
-      <div class="info-content">
-        <!-- Album artwork -->
-        <img src="https://i1.sndcdn.com/artworks-000160121089-u63pt0-t500x500.jpg" />
-        
-        <!-- Artist and song information -->
-        <div class="info">
-          <h2 class="artist">I Am Karate</h2>
-          <p class="song">Bitter</p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Another progress bar, possibly for a different element -->
-    <div class="progress-bar"><span class="progress"></span></div>
-    
+
     <!-- HTML5 audio element -->
     <audio id="player"></audio>
   </div>
