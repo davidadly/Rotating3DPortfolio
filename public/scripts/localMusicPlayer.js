@@ -100,10 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let tracks = [];
   let currentTrackIndex = 0;
 
-  // Function to load tracks from the music folder
+  // Function to load tracks from the music store
   async function loadTracks() {
     try {
-      const response = await fetch('/api/tracks');
+      const response = await fetch('/music/music_store.json');
       if (!response.ok) {
         throw new Error('Failed to fetch tracks');
       }
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     trackList.innerHTML = '';
     tracks.forEach((track, index) => {
       const li = document.createElement('li');
-      li.textContent = track.name;
+      li.textContent = `${track.artist} - ${track.name}`;
       li.addEventListener('click', () => {
         currentTrackIndex = index;
         loadTrack(currentTrackIndex);
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     musicFolderList.innerHTML = '';
     tracks.forEach((track, index) => {
       const div = document.createElement('div');
-      div.textContent = track.name;
+      div.textContent = `${track.artist} - ${track.name}`;
       div.addEventListener('click', () => {
         currentTrackIndex = index;
         loadTrack(currentTrackIndex);
