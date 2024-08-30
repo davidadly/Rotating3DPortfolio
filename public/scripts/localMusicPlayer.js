@@ -92,11 +92,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let tracks = [];
   let currentTrackIndex = 0;
 
-  // Function to fetch and load tracks from the music folder
+  // Function to load tracks from the music folder
   async function loadTracks() {
     try {
-      const response = await fetch('/api/tracks');
-      tracks = await response.json();
+      const response = await fetch('/music');
+      const text = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      const links = doc.querySelectorAll('a');
+      tracks = Array.from(links)
+        .filter(link => link.href.endsWith('.mp3'))
+        .map(link => ({
+          name: decodeURIComponent(link.textContent.trim()),
+          url: link.href
+        }));
       displayTracks();
       loadTrack(currentTrackIndex);
     } catch (error) {
@@ -124,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (index >= 0 && index < tracks.length) {
       const track = tracks[index];
       audioPlayer.src = track.url;
-      artistElement.textContent = track.artist || 'Unknown Artist';
+      artistElement.textContent = 'Unknown Artist';
       songElement.textContent = track.name;
     }
   }
