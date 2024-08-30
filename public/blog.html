@@ -162,13 +162,15 @@
         .blog-post {
             background-color: var(--card-background);
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 30px; /* Increased padding for more white space */
-            margin-bottom: 50px; /* Further increased margin for more white space */
-            transition: box-shadow 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.1);
+            padding: 40px; /* Further increased padding for more white space */
+            margin-bottom: 50px;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .blog-post:hover {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-color: rgba(0,0,0,0.2);
         }
         .blog-post h3 {
             margin-top: 0;
