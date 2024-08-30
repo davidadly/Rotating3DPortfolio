@@ -21,12 +21,17 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('/api/music-files')
             .then(response => response.json())
             .then(files => {
-                tracks = files.map(file => ({
-                    name: file.replace('.mp3', ''),
-                    url: `/music/${file}`
-                }));
+                tracks = files.filter(file => file.toLowerCase().endsWith('.wav'))
+                    .map(file => ({
+                        name: file.replace('.wav', ''),
+                        url: `/music/${file}`
+                    }));
                 updatePlaylist();
-                loadTrack(0);
+                if (tracks.length > 0) {
+                    loadTrack(0);
+                } else {
+                    console.log('No .wav files found');
+                }
             })
             .catch(error => console.error('Error loading tracks:', error));
     }
@@ -106,3 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     loadTracks();
 });
+    function isAudioFile(fileName) {
+        return fileName.toLowerCase().endsWith('.wav');
+    }
