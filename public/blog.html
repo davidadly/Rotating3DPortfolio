@@ -26,6 +26,14 @@
             --header-background: rgba(240, 248, 255, 0.9); /* Slightly transparent navy blue */
             --sidebar-background: rgba(240, 248, 255, 0.8); /* Transparent navy blue for sidebar */
         }
+        #particles-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
 
         /* Scroll-to-top button styles */
         #scrollToTopBtn {
@@ -428,6 +436,52 @@
     </script>
     <button id="scrollToTopBtn" style="display: none;">Scroll to Top</button>
     <button id="scrollToTopBtn" style="display: none;">&#8679;</button>
+    <div id="particles-background"></div>
+    <script>
+        // Particle background
+        const particlesScene = new THREE.Scene();
+        const particlesCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const particlesRenderer = new THREE.WebGLRenderer({ alpha: true });
+        particlesRenderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('particles-background').appendChild(particlesRenderer.domElement);
+
+        const particles = new THREE.BufferGeometry();
+        const particleCount = 1000;
+        const posArray = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 5;
+        }
+
+        particles.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        const particleMaterial = new THREE.PointsMaterial({
+            size: 0.005,
+            color: 0x87ceeb,
+            transparent: true,
+            opacity: 0.5
+        });
+
+        const particlesMesh = new THREE.Points(particles, particleMaterial);
+        particlesScene.add(particlesMesh);
+
+        particlesCamera.position.z = 2;
+
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            particlesMesh.rotation.x += 0.0005;
+            particlesMesh.rotation.y += 0.0005;
+            particlesRenderer.render(particlesScene, particlesCamera);
+        }
+
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            particlesCamera.aspect = window.innerWidth / window.innerHeight;
+            particlesCamera.updateProjectionMatrix();
+            particlesRenderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
 </body>
 </html>
 <!DOCTYPE html>
