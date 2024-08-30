@@ -403,6 +403,28 @@
                 header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)'; /* Original shadow */
             }
         });
+
+        // Three.js Wireframe Orb
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(200, 200);
+        document.getElementById('orb-container').appendChild(renderer.domElement);
+
+        const geometry = new THREE.SphereGeometry(1, 16, 16);
+        const material = new THREE.MeshBasicMaterial({ color: 0x87ceeb, wireframe: true });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        camera.position.z = 2;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.x += 0.01;
+            sphere.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
     </script>
     <button id="scrollToTopBtn" style="display: none;">Scroll to Top</button>
     <button id="scrollToTopBtn" style="display: none;">&#8679;</button>
