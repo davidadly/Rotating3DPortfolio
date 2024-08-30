@@ -26,6 +26,15 @@
             --header-background: rgba(240, 248, 255, 0.9); /* Slightly transparent navy blue */
             --sidebar-background: rgba(240, 248, 255, 0.8); /* Transparent navy blue for sidebar */
         }
+        #scroll-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            z-index: 1000;
+        }
         #particles-background {
             position: fixed;
             top: 0;
@@ -443,6 +452,7 @@
     <button id="scrollToTopBtn" style="display: none;">Scroll to Top</button>
     <button id="scrollToTopBtn" style="display: none;">&#8679;</button>
     <div id="particles-background"></div>
+    <div id="scroll-indicator"></div>
     <script>
         // Particle background
         const particlesScene = new THREE.Scene();
@@ -509,6 +519,37 @@
             sidebarRenderer.render(sidebarScene, sidebarCamera);
         }
         animateSidebarOrb();
+
+        // 3D Scroll Indicator
+        const scrollIndicatorScene = new THREE.Scene();
+        const scrollIndicatorCamera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const scrollIndicatorRenderer = new THREE.WebGLRenderer({ alpha: true });
+        scrollIndicatorRenderer.setSize(50, 50);
+        document.getElementById('scroll-indicator').appendChild(scrollIndicatorRenderer.domElement);
+
+        const arrowGeometry = new THREE.ConeGeometry(0.5, 1, 32);
+        const arrowMaterial = new THREE.MeshBasicMaterial({ color: 0x87ceeb });
+        const arrow = new THREE.Mesh(arrowGeometry, arrowMaterial);
+        scrollIndicatorScene.add(arrow);
+
+        scrollIndicatorCamera.position.z = 5;
+
+        function animateScrollIndicator() {
+            requestAnimationFrame(animateScrollIndicator);
+            arrow.rotation.z += 0.05;
+            scrollIndicatorRenderer.render(scrollIndicatorScene, scrollIndicatorCamera);
+        }
+        animateScrollIndicator();
+
+        // Show/hide scroll indicator based on scroll position
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.getElementById('scroll-indicator');
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
+        });
     </script>
 </body>
 </html>
