@@ -108,7 +108,8 @@ app.get('/api/tracks', async (req, res) => {
       .map(file => ({
         name: path.basename(file, '.mp3'),
         url: `/music/${file}`,
-        artist: 'Unknown Artist' // You can add metadata parsing here if needed
+        artist: 'Unknown Artist', // You can add metadata parsing here if needed
+        albumArt: '/assets/images/default-album-art.jpg' // Add a default album art
       }));
     res.json(tracks);
   } catch (error) {

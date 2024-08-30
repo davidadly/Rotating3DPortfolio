@@ -110,7 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
       tracks = await response.json();
       displayTracks();
       displayMusicFolder();
-      loadTrack(currentTrackIndex);
+      if (tracks.length > 0) {
+        loadTrack(currentTrackIndex);
+      }
     } catch (error) {
       console.error('Error loading tracks:', error);
     }
@@ -154,9 +156,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (index >= 0 && index < tracks.length) {
       const track = tracks[index];
       audioPlayer.src = track.url;
-      artistElement.textContent = track.artist;
+      artistElement.textContent = track.artist || 'Unknown Artist';
       songElement.textContent = track.name;
-      albumArt.src = track.albumArt || 'path/to/default/album-art.jpg';
+      albumArt.src = track.albumArt || '/assets/images/default-album-art.jpg';
       highlightCurrentTrack();
     }
   }
