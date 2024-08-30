@@ -18,3 +18,23 @@
     "albumArt": "https://example.com/albumart/sample3.jpg"
   }
 ]
+[
+  {
+    "name": "Bitter",
+    "artist": "I Am Karate",
+    "url": "https://example.com/music/bitter.mp3",
+    "albumArt": "https://i1.sndcdn.com/artworks-000160121089-u63pt0-t500x500.jpg"
+  },
+  {
+    "name": "Sample Track 2",
+    "artist": "Sample Artist 2",
+    "url": "https://example.com/music/sample2.mp3",
+    "albumArt": "https://example.com/albumart/sample2.jpg"
+  },
+  {
+    "name": "Sample Track 3",
+    "artist": "Sample Artist 3",
+    "url": "https://example.com/music/sample3.mp3",
+    "albumArt": "https://example.com/albumart/sample3.jpg"
+  }
+]
