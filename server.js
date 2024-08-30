@@ -90,3 +90,33 @@ cron.schedule("0 0 */24 * * *", () => {
 // Start the Express server on the specified port, or default to port 3000
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`app is listening on port ${PORT}`));
+const express = require('express');
+const fs = require('fs').promises;
+const path = require('path');
+
+const app = express();
+const port = 3000;
+
+app.use(express.static('public'));
+
+app.get('/api/tracks', async (req, res) => {
+  try {
+    const musicDir = path.join(__dirname, 'public', 'music');
+    const files = await fs.readdir(musicDir);
+    const tracks = files
+      .filter(file => path.extname(file).toLowerCase() === '.mp3')
+      .map(file => ({
+        name: path.basename(file, '.mp3'),
+        url: `/music/${file}`,
+        artist: 'Unknown Artist' // You can add metadata parsing here if needed
+      }));
+    res.json(tracks);
+  } catch (error) {
+    console.error('Error reading music directory:', error);
+    res.status(500).json({ error: 'Unable to read music directory' });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
