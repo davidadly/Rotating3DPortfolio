@@ -93,27 +93,25 @@ app.listen(PORT, () => console.log(`app is listening on port ${PORT}`));
 const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
+const mm = require('music-metadata');
 
 const app = express();
 const port = 3000;
 
 app.use(express.static('public'));
 
-const { promisify } = require('util');
-const mm = require('music-metadata');
-
 app.get('/api/tracks', async (req, res) => {
   try {
     const musicDir = path.join(__dirname, 'public', 'music');
     const files = await fs.readdir(musicDir);
     const tracks = await Promise.all(files
-      .filter(file => path.extname(file).toLowerCase() === '.mp3')
+      .filter(file => ['.mp3', '.wav', '.ogg'].includes(path.extname(file).toLowerCase()))
       .map(async file => {
         const filePath = path.join(musicDir, file);
         try {
           const metadata = await mm.parseFile(filePath);
           return {
-            name: metadata.common.title || path.basename(file, '.mp3'),
+            name: metadata.common.title || path.basename(file, path.extname(file)),
             url: `/music/${file}`,
             artist: metadata.common.artist || 'Unknown Artist',
             albumArt: metadata.common.picture && metadata.common.picture.length > 0
@@ -123,7 +121,7 @@ app.get('/api/tracks', async (req, res) => {
         } catch (err) {
           console.error(`Error parsing metadata for ${file}:`, err);
           return {
-            name: path.basename(file, '.mp3'),
+            name: path.basename(file, path.extname(file)),
             url: `/music/${file}`,
             artist: 'Unknown Artist',
             albumArt: '/assets/images/default-album-art.jpg'

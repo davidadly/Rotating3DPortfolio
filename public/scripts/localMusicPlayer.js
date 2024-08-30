@@ -100,10 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let tracks = [];
   let currentTrackIndex = 0;
 
-  // Function to load tracks from the music store
+  // Function to load tracks from the server
   async function loadTracks() {
     try {
-      const response = await fetch('/music/music_store.json');
+      const response = await fetch('/api/tracks');
       if (!response.ok) {
         throw new Error('Failed to fetch tracks');
       }
