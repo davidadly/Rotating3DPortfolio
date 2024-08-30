@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextButton = document.querySelector('.next');
   const previousButton = document.querySelector('.previous');
   const progressBar = document.querySelector('.progress-bar .progress');
-  const trackList = document.querySelector('.list ul');
+  const trackList = document.getElementById('trackList');
   const artistElement = document.querySelector('.info .artist');
   const songElement = document.querySelector('.info .song');
 
@@ -95,17 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Function to load tracks from the music folder
   async function loadTracks() {
     try {
-      const response = await fetch('/music');
-      const text = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(text, 'text/html');
-      const links = doc.querySelectorAll('a');
-      tracks = Array.from(links)
-        .filter(link => link.href.endsWith('.mp3'))
-        .map(link => ({
-          name: decodeURIComponent(link.textContent.trim()),
-          url: link.href
-        }));
+      const response = await fetch('/api/tracks');
+      if (!response.ok) {
+        throw new Error('Failed to fetch tracks');
+      }
+      tracks = await response.json();
       displayTracks();
       loadTrack(currentTrackIndex);
     } catch (error) {
@@ -133,9 +127,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (index >= 0 && index < tracks.length) {
       const track = tracks[index];
       audioPlayer.src = track.url;
-      artistElement.textContent = 'Unknown Artist';
+      artistElement.textContent = track.artist;
       songElement.textContent = track.name;
+      highlightCurrentTrack();
     }
+  }
+
+  // Function to highlight the current track in the list
+  function highlightCurrentTrack() {
+    const trackItems = trackList.querySelectorAll('li');
+    trackItems.forEach((item, index) => {
+      if (index === currentTrackIndex) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
   }
 
   // Play/Pause button functionality
