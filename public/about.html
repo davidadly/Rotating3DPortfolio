@@ -81,6 +81,20 @@
         .about-section p, .about-section ul {
             margin-top: 15px;
         }
+        .about-section ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .about-section li {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .about-section li::before {
+            content: '\2192'; /* Right arrow Unicode character */
+            position: absolute;
+            left: -20px;
+            color: #87ceeb; /* Light blue color to match the accent */
+        }
     </style>
 </head>
 <body>
