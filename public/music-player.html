@@ -306,6 +306,12 @@
   <!-- External JavaScript libraries and scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="/scripts/folderMusicPlayer.js"></script>
+  <script>
+    // Override the file extension check in the folderMusicPlayer.js
+    function isAudioFile(fileName) {
+      return fileName.toLowerCase().endsWith('.wav');
+    }
+  </script>
 </body>
 
 </html>
