@@ -143,3 +143,27 @@ app.get('/api/tracks', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+
+const app = express();
+const port = 3000;
+
+app.use(express.static('public'));
+
+app.get('/api/music-files', (req, res) => {
+    const musicDir = path.join(__dirname, 'public', 'music');
+    fs.readdir(musicDir, (err, files) => {
+        if (err) {
+            console.error('Error reading music directory:', err);
+            return res.status(500).json({ error: 'Unable to read music directory' });
+        }
+        const musicFiles = files.filter(file => path.extname(file).toLowerCase() === '.mp3');
+        res.json(musicFiles);
+    });
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
