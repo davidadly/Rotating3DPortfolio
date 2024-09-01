@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentTimeEl = document.getElementById('currentTime');
     const durationEl = document.getElementById('duration');
     const volumeSlider = document.getElementById('volumeSlider');
+    volumeSlider.value = 50;
+    audioPlayer.volume = 0.5;
     const playlistToggle = document.getElementById('playlistToggle');
     const playlist = document.querySelector('.playlist');
     const trackList = document.getElementById('trackList');
