@@ -192,6 +192,46 @@
         width: 100%;
       }
     }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: rgba(240, 248, 255, 0.8);
+      backdrop-filter: blur(5px);
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+      transition: transform 0.3s ease-in-out;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 60px;
+    }
+    .sidebar ul li {
+      margin: 20px 0;
+    }
+    .sidebar ul li a {
+      color: #4a4a4a;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px;
+      display: block;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+      font-size: 1.1em;
+    }
+    .sidebar ul li a:hover {
+      background-color: #e6f2ff;
+      color: #3498db;
+      transform: translateX(5px);
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+    }
     .player-header {
       text-align: center;
       margin-bottom: 20px;
@@ -387,6 +427,18 @@
     </nav>
   </header>
 
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div id="sidebar-orb-container"></div>
+    <ul>
+      <li><a href="/home.html" style="color: #333;"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/portfolio.html"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+      <li><a href="/about.html"><i class="fa fa-user"></i> About</a></li>
+      <li><a href="/contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+      <li><a href="/blog.html"><i class="fa fa-pencil"></i> Blog</a></li>
+    </ul>
+  </div>
+
   <!-- Content wrapper -->
   <div class="content-wrapper">
     <!-- Modern Music Player Container -->
@@ -439,6 +491,30 @@
   <!-- External JavaScript libraries and scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="/scripts/folderMusicPlayer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Sidebar Orb
+    const sidebarScene = new THREE.Scene();
+    const sidebarCamera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    const sidebarRenderer = new THREE.WebGLRenderer({ alpha: true });
+    sidebarRenderer.setSize(200, 200);
+    document.getElementById('sidebar-orb-container').appendChild(sidebarRenderer.domElement);
+
+    const sidebarGeometry = new THREE.IcosahedronGeometry(1.5, 1);
+    const sidebarMaterial = new THREE.MeshBasicMaterial({ color: 0x87ceeb, wireframe: true });
+    const sidebarSphere = new THREE.Mesh(sidebarGeometry, sidebarMaterial);
+    sidebarScene.add(sidebarSphere);
+
+    sidebarCamera.position.z = 3;
+
+    function animateSidebarOrb() {
+      requestAnimationFrame(animateSidebarOrb);
+      sidebarSphere.rotation.x += 0.01;
+      sidebarSphere.rotation.y += 0.01;
+      sidebarRenderer.render(sidebarScene, sidebarCamera);
+    }
+    animateSidebarOrb();
+  </script>
 </body>
 
 </html>
