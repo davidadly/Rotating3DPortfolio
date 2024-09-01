@@ -21,7 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('/api/tracks')
             .then(response => response.json())
             .then(data => {
-                tracks = data;
+                tracks = data.map(track => ({
+                    ...track,
+                    albumArt: track.albumArt || null // Ensure albumArt property exists, even if it's null
+                }));
                 updatePlaylist();
                 if (tracks.length > 0) {
                     loadTrack(0);
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.src = track.url;
         songName.textContent = track.name;
         artistName.textContent = 'Unknown Artist'; // You can update this if you have artist metadata
-        albumArt.src = '/assets/default-album-art.jpg'; // Use a default album art
+        albumArt.src = track.albumArt || '/music/image.png'; // Use the new default image if no album art is available
 
         document.querySelectorAll('#trackList li').forEach((li, i) => {
             li.classList.toggle('active', i === currentTrackIndex);
