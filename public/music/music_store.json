@@ -6,8 +6,8 @@
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "All u Need is Celebrity",
-    "url": "/music/All u Need is Celebrity.wav",
+    "name": "All you need is love",
+    "url": "/music/All you need is love.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   },
@@ -18,14 +18,14 @@
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "CINEMA 1",
-    "url": "/music/CINEMA 1.wav",
+    "name": "cinema-1",
+    "url": "/music/cinema-1.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "everythings Fine",
-    "url": "/music/everythings Fine.wav",
+    "name": "everythings-fine",
+    "url": "/music/everythings-fine.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   },
@@ -36,32 +36,26 @@
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "flying flamingo",
-    "url": "/music/flying flamingo.wav",
+    "name": "flying-flamingo",
+    "url": "/music/flying-flamingo.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "gather the troops",
-    "url": "/music/gather the troops.wav",
+    "name": "gather-the-troops",
+    "url": "/music/gather-the-troops.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "heros never die",
-    "url": "/music/heros never die.wav",
+    "name": "heros",
+    "url": "/music/heros.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "Oh",
-    "url": "/music/Oh.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
-  },
-  {
-    "name": "r e a l v a p o r w a v e x d ",
-    "url": "/music/r e a l v a p o r w a v e x d .wav",
+    "name": "oh",
+    "url": "/music/oh.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   },
@@ -72,20 +66,20 @@
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "Talk $ht Get Hit",
-    "url": "/music/Talk $ht Get Hit.wav",
+    "name": "strings-acapella",
+    "url": "/music/strings-acapella.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "The Tribe v2",
-    "url": "/music/The Tribe v2.wav",
+    "name": "the-tribe",
+    "url": "/music/the-tribe.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "Uh v2",
-    "url": "/music/Uh v2.wav",
+    "name": "uh",
+    "url": "/music/uh.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   },
@@ -96,8 +90,14 @@
     "albumArt": "/assets/images/default-album-art.jpg"
   },
   {
-    "name": "watching my house burn",
-    "url": "/music/watching my house burn.wav",
+    "name": "vaporwave-aesthetic",
+    "url": "/music/vaporwave-aesthetic.wav",
+    "artist": "Unknown Artist",
+    "albumArt": "/assets/images/default-album-art.jpg"
+  },
+  {
+    "name": "watching-my-house-burn",
+    "url": "/music/watching-my-house-burn.wav",
     "artist": "Unknown Artist",
     "albumArt": "/assets/images/default-album-art.jpg"
   }
