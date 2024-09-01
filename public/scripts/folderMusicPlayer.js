@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.src = track.url;
         songName.textContent = 'Original by David Adly';
         artistName.textContent = track.name;
-        albumArt.src = track.albumArt || '/music/image.png';
+        // Album art is now a static icon, so we don't need to set the src
 
         audioPlayer.play();
         updatePlayPauseIcon();

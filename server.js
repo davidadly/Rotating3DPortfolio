@@ -2,7 +2,8 @@
 const express = require("express"); // Express framework for building web applications
 const https = require("https"); // HTTPS module for creating a secure server
 const path = require("path"); // Path module for handling file and directory paths
-const fs = require("fs"); // File System module for interacting with the file system
+const fs = require("fs").promises; // File System module for interacting with the file system
+const mm = require('music-metadata');
 
 // Create an instance of an Express application
 const app = express();
@@ -78,28 +79,6 @@ cron.schedule("0 0 */24 * * *", () => {
   updateStore("/public/misc/store.json", "/public/assets/models/misc");
 });
 
-// Uncommented code to create and start an HTTPS server using SSL certificates
-// const sslServer = https.createServer({
-//   key: fs.readFileSync(path.join(__dirname,'cert','key.pem')),
-//   cert: fs.readFileSync(path.join(__dirname,'cert','dxadly_net.pem-chain')),
-// },
-// app
-// )
-// sslServer.listen(3000, ()=> console.log('Started secure server on port 3000'));
-
-// Start the Express server on the specified port, or default to port 3000
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`app is listening on port ${PORT}`));
-const express = require('express');
-const fs = require('fs').promises;
-const path = require('path');
-const mm = require('music-metadata');
-
-const app = express();
-const port = 3000;
-
-app.use(express.static('public'));
-
 app.get('/api/tracks', async (req, res) => {
   try {
     const musicDir = path.join(__dirname, 'public', 'music');
@@ -140,6 +119,15 @@ app.get('/api/tracks', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+// Uncommented code to create and start an HTTPS server using SSL certificates
+// const sslServer = https.createServer({
+//   key: fs.readFileSync(path.join(__dirname,'cert','key.pem')),
+//   cert: fs.readFileSync(path.join(__dirname,'cert','dxadly_net.pem-chain')),
+// },
+// app
+// )
+// sslServer.listen(3000, ()=> console.log('Started secure server on port 3000'));
+
+// Start the Express server on the specified port, or default to port 3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`app is listening on port ${PORT}`));
