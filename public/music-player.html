@@ -42,13 +42,45 @@
   <style>
     body {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
       min-height: 100vh;
       margin: 0;
       padding: 0;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       font-family: 'Open Sans', sans-serif;
+    }
+    header {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px 0;
+      margin-bottom: 30px;
+    }
+    .headline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .headline h1, .headline h3 {
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      padding-top: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 10px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
     }
     .modern-player {
       margin: 0;
