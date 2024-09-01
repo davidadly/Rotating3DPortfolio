@@ -488,7 +488,7 @@
 
     <!-- Progress Bar -->
     <div class="progress-container">
-      <div class="progress-bar">
+      <div class="progress-bar" id="progressBar">
         <div class="progress"></div>
       </div>
       <div class="time-info">
@@ -548,6 +548,26 @@
       sidebarRenderer.render(sidebarScene, sidebarCamera);
     }
     animateSidebarOrb();
+
+    // Interactive progress bar
+    document.addEventListener('DOMContentLoaded', () => {
+      const audioPlayer = document.getElementById('player');
+      const progressBar = document.getElementById('progressBar');
+      const progress = progressBar.querySelector('.progress');
+
+      progressBar.addEventListener('click', (e) => {
+        const rect = progressBar.getBoundingClientRect();
+        const clickPosition = (e.clientX - rect.left) / rect.width;
+        const newTime = clickPosition * audioPlayer.duration;
+        audioPlayer.currentTime = newTime;
+        progress.style.width = `${clickPosition * 100}%`;
+      });
+
+      audioPlayer.addEventListener('timeupdate', () => {
+        const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progress.style.width = `${progressPercentage}%`;
+      });
+    });
   </script>
 </body>
 
