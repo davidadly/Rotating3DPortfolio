@@ -425,47 +425,6 @@
     </div>
 
 
-    <!-- Playlist Management -->
-    <div class="playlist-management">
-      <input type="text" id="newPlaylistName" placeholder="New Playlist Name">
-      <button id="createPlaylist">Create Playlist</button>
-      <select id="playlistSelect"></select>
-      <button id="renamePlaylist">Rename</button>
-      <button id="deletePlaylist">Delete</button>
-    </div>
-
-    <!-- Playlist Toggle -->
-    <button id="playlistToggle" class="playlist-toggle">
-      <i class="fa fa-list"></i>
-    </button>
-
-    <!-- Playlist -->
-    <div class="playlist hidden">
-      <ul id="trackList"></ul>
-    </div>
-
-    <style>
-      .playlist {
-        max-height: 300px;
-        overflow-y: auto;
-      }
-      #trackList li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 10px;
-      }
-      .track-name {
-        flex-grow: 1;
-      }
-      .track-info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        font-size: 0.8em;
-        color: rgba(255, 255, 255, 0.7);
-      }
-    </style>
 
     <!-- HTML5 audio element -->
     <audio id="player"></audio>
