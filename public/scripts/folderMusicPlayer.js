@@ -18,19 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentTrackIndex = 0;
 
     function loadTracks() {
-        fetch('/api/music-files')
+        fetch('/api/tracks')
             .then(response => response.json())
-            .then(files => {
-                tracks = files.filter(file => file.toLowerCase().endsWith('.wav'))
-                    .map(file => ({
-                        name: file.replace('.wav', ''),
-                        url: `/music/${file}`
-                    }));
+            .then(data => {
+                tracks = data;
                 updatePlaylist();
                 if (tracks.length > 0) {
                     loadTrack(0);
                 } else {
-                    console.log('No .wav files found');
+                    console.log('No tracks found');
                 }
             })
             .catch(error => console.error('Error loading tracks:', error));
