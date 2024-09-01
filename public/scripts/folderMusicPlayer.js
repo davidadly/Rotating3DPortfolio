@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.src = track.url;
         songName.textContent = 'Original by David Adly';
         artistName.textContent = track.name;
-        albumArt.src = '/public/music/image.png';
+        albumArt.src = track.albumArt || '/music/image.png';
 
         audioPlayer.play();
         updatePlayPauseIcon();
