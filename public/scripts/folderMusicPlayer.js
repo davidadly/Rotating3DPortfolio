@@ -21,10 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('/api/tracks')
             .then(response => response.json())
             .then(data => {
-                tracks = data.map(track => ({
-                    ...track,
-                    albumArt: track.albumArt || null
-                }));
+                tracks = data;
                 if (tracks.length > 0) {
                     loadTrack(0);
                 } else {
@@ -43,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.src = track.url;
         songName.textContent = 'Original by David Adly';
         artistName.textContent = track.name;
-        albumArt.src = track.albumArt || '/public/music/image.png';
+        albumArt.src = '/public/music/image.png';
 
         audioPlayer.play();
         updatePlayPauseIcon();
