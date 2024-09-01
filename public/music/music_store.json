@@ -2,103 +2,86 @@
   {
     "name": "2009",
     "url": "/music/2009.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "All you need is love",
     "url": "/music/All you need is love.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "chrome",
     "url": "/music/chrome.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "cinema-1",
     "url": "/music/cinema-1.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "everythings-fine",
     "url": "/music/everythings-fine.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "excape",
     "url": "/music/excape.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "flying-flamingo",
     "url": "/music/flying-flamingo.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "gather-the-troops",
     "url": "/music/gather-the-troops.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "heros",
     "url": "/music/heros.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "oh",
     "url": "/music/oh.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "spartac",
     "url": "/music/spartac.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "strings-acapella",
     "url": "/music/strings-acapella.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "the-tribe",
     "url": "/music/the-tribe.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "uh",
     "url": "/music/uh.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "vaporlearn2mix",
     "url": "/music/vaporlearn2mix.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "vaporwave-aesthetic",
     "url": "/music/vaporwave-aesthetic.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   },
   {
     "name": "watching-my-house-burn",
     "url": "/music/watching-my-house-burn.wav",
-    "artist": "Unknown Artist",
-    "albumArt": "/assets/images/default-album-art.jpg"
+    "albumArt": "/public/music/image.png"
   }
 ]
