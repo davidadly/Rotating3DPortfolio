@@ -102,14 +102,70 @@
       width: 90%;
       max-width: 350px;
     }
-    @media (max-width: 768px) {
-      .modern-player {
+    @media (max-width: 1024px) {
+      .content-wrapper {
         width: 95%;
+      }
+      .modern-player {
+        max-width: 400px;
+      }
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 0;
+      }
+      .content-wrapper {
+        width: 90%;
+      }
+      .modern-player {
+        width: 100%;
+        max-width: none;
         padding: 20px;
       }
       .album-art {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
+      }
+      .artist {
+        font-size: 22px;
+      }
+      .song {
+        font-size: 18px;
+      }
+      .control-btn {
+        font-size: 22px;
+        margin: 0 12px;
+      }
+      .play-pause {
+        font-size: 32px;
+      }
+      .music-folder-dropdown {
+        position: static;
+        margin-bottom: 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      body {
+        padding: 10px 0;
+      }
+      .content-wrapper {
+        width: 95%;
+      }
+      .headline {
+        gap: 5px;
+      }
+      .headline h1 {
+        font-size: 22px;
+      }
+      .headline h3 {
+        font-size: 16px;
+      }
+      .modern-player {
+        padding: 15px;
+      }
+      .album-art {
+        width: 140px;
+        height: 140px;
       }
       .artist {
         font-size: 20px;
@@ -119,41 +175,21 @@
       }
       .control-btn {
         font-size: 20px;
-        margin: 0 10px;
-      }
-      .play-pause {
-        font-size: 30px;
-      }
-    }
-    @media (max-width: 480px) {
-      .headline {
-        gap: 5px;
-      }
-      .headline h1 {
-        font-size: 24px;
-      }
-      .headline h3 {
-        font-size: 18px;
-      }
-      .modern-player {
-        padding: 15px;
-      }
-      .album-art {
-        width: 120px;
-        height: 120px;
-      }
-      .artist {
-        font-size: 18px;
-      }
-      .song {
-        font-size: 14px;
-      }
-      .control-btn {
-        font-size: 18px;
         margin: 0 8px;
       }
       .play-pause {
-        font-size: 26px;
+        font-size: 28px;
+      }
+      .volume-control {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .volume-control i {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+      #volumeSlider {
+        width: 100%;
       }
     }
     .player-header {
