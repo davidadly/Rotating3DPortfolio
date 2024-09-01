@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.src = track.url;
         songName.textContent = track.name;
         artistName.textContent = 'Unknown Artist'; // You can update this if you have artist metadata
-        albumArt.src = track.albumArt || '/music/image.png'; // Use the new default image if no album art is available
+        albumArt.src = track.albumArt || '/public/music/image.png'; // Use the default image if no album art is available
 
         document.querySelectorAll('#trackList li').forEach((li, i) => {
             li.classList.toggle('active', i === currentTrackIndex);
