@@ -53,7 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const track = tracks[currentTrackIndex];
         audioPlayer.src = track.url;
         songName.textContent = track.name;
-        artistName.textContent = 'Unknown Artist'; // You can update this if you have artist metadata
+        
+        // Update artist name
+        artistName.textContent = track.artist || 'Original by David Adly';
+        
+        // Update album information
+        const albumInfo = track.album ? `Album: ${track.album}` : 'Original by David Adly';
+        document.getElementById('albumInfo').textContent = albumInfo;
+        
         albumArt.src = track.albumArt || '/public/music/image.png'; // Use the default image if no album art is available
 
         document.querySelectorAll('#trackList li').forEach((li, i) => {
