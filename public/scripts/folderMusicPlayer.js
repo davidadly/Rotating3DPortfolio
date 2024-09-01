@@ -54,12 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.src = track.url;
         songName.textContent = track.name;
         
-        // Update artist name
-        artistName.textContent = track.artist || 'Original by David Adly';
-        
-        // Update album information
-        const albumInfo = track.album ? `Album: ${track.album}` : 'Original by David Adly';
-        document.getElementById('albumInfo').textContent = albumInfo;
+        // Artist name is always "Original by David Adly"
+        artistName.textContent = 'Original by David Adly';
         
         albumArt.src = track.albumArt || '/public/music/image.png'; // Use the default image if no album art is available
 
