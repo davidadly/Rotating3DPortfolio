@@ -50,7 +50,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const playlistTracks = currentPlaylist === 'all' ? tracks : playlists[currentPlaylist];
         playlistTracks.forEach((track, index) => {
             const li = document.createElement('li');
-            li.textContent = track.name;
+            li.innerHTML = `
+                <span class="track-name">${track.name}</span>
+                <span class="track-info">
+                    <span class="track-duration">${formatTime(track.duration || 0)}</span>
+                    <span class="track-album">${track.album || 'Unknown Album'}</span>
+                </span>
+            `;
             li.addEventListener('click', () => loadTrack(index));
             trackList.appendChild(li);
         });
@@ -74,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
         currentTrackIndex = index;
         const track = playlistTracks[currentTrackIndex];
         audioPlayer.src = track.url;
-        songName.textContent = track.name;
-        artistName.textContent = 'Original by David Adly';
+        songName.textContent = 'Original by David Adly';
+        artistName.textContent = track.name;
         albumArt.src = track.albumArt || '/public/music/image.png';
 
         document.querySelectorAll('#trackList li').forEach((li, i) => {
