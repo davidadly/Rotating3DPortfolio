@@ -242,6 +242,14 @@
       border-radius: 50%;
       margin-bottom: 20px;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .album-art i {
+      font-size: 100px;
+      color: #fff;
     }
     .track-info {
       color: #fff;
@@ -445,7 +453,9 @@
     <div class="modern-player">
       <!-- Album Art and Track Info -->
       <div class="player-header">
-      <img id="albumArt" src="/public/music/image.png" alt="Album Art" class="album-art" />
+      <div id="albumArt" class="album-art">
+        <i class="fa fa-music"></i>
+      </div>
       <div class="track-info">
         <h2 id="artistName" class="artist">Original by David Adly</h2>
         <p id="songName" class="song">Loading...</p>
