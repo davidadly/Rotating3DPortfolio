@@ -51,6 +51,14 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       font-family: 'Open Sans', sans-serif;
     }
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 30px;
+    }
     header {
       width: 100%;
       background-color: rgba(255, 255, 255, 0.1);
@@ -333,10 +341,12 @@
     </nav>
   </header>
 
-  <!-- Modern Music Player Container -->
-  <div class="modern-player">
-    <!-- Album Art and Track Info -->
-    <div class="player-header">
+  <!-- Content wrapper -->
+  <div class="content-wrapper">
+    <!-- Modern Music Player Container -->
+    <div class="modern-player">
+      <!-- Album Art and Track Info -->
+      <div class="player-header">
       <img id="albumArt" src="/assets/images/default-album-art.jpg" alt="Album Art" class="album-art" />
       <div class="track-info">
         <h2 id="artistName" class="artist">Loading...</h2>
@@ -391,6 +401,7 @@
     <!-- HTML5 audio element -->
     <audio id="player"></audio>
   </div>
+  </div> <!-- Close content-wrapper -->
 
   <!-- External JavaScript libraries and scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
