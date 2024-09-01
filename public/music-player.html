@@ -284,14 +284,42 @@
       border-radius: 2.5px;
       background: rgba(255, 255, 255, 0.3);
       outline: none;
+      position: relative;
     }
     #volumeSlider::-webkit-slider-thumb {
       -webkit-appearance: none;
-      width: 15px;
-      height: 15px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: #fff;
       cursor: pointer;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    #volumeSlider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      border: none;
+    }
+    #volumeSlider::before {
+      content: attr(data-volume);
+      position: absolute;
+      top: -25px;
+      left: var(--thumb-position, 0);
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    #volumeSlider:hover::before {
+      opacity: 1;
     }
     .playlist-toggle {
       background: rgba(255, 255, 255, 0.2);

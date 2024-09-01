@@ -101,8 +101,19 @@ document.addEventListener('DOMContentLoaded', function() {
     audioPlayer.addEventListener('ended', () => loadTrack(currentTrackIndex + 1));
 
     volumeSlider.addEventListener('input', () => {
-        audioPlayer.volume = volumeSlider.value / 100;
+        const volume = volumeSlider.value;
+        audioPlayer.volume = volume / 100;
+        volumeSlider.setAttribute('data-volume', `${volume}%`);
+        updateVolumeSliderTooltip();
     });
+
+    function updateVolumeSliderTooltip() {
+        const thumbPosition = (volumeSlider.value - volumeSlider.min) / (volumeSlider.max - volumeSlider.min) * 100;
+        volumeSlider.style.setProperty('--thumb-position', `${thumbPosition}%`);
+    }
+
+    // Initial update of volume slider tooltip
+    updateVolumeSliderTooltip();
 
     playlistToggle.addEventListener('click', () => {
         playlist.classList.toggle('hidden');
