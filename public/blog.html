@@ -258,12 +258,23 @@
         }
         .blog-post {
             background-color: var(--card-background);
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             border: 1px solid var(--primary-color);
-            padding: 20px;
-            margin-bottom: 30px;
+            padding: 25px;
+            margin-bottom: 40px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color-1));
         }
         .blog-post .content {
             margin-top: 20px;
@@ -273,18 +284,20 @@
             padding-left: 20px;
         }
         .blog-post:hover {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
         }
         .blog-post h3 {
             margin-top: 0;
             color: var(--secondary-color);
-            font-size: 1.5em;
+            font-size: 1.6em;
+            font-weight: 600;
         }
         .blog-post .date {
             color: var(--accent-color-3);
             font-size: 0.9em;
             margin-bottom: 15px;
+            font-style: italic;
         }
         .blog-post .content {
             margin-top: 20px;
@@ -296,8 +309,14 @@
         .blog-post img {
             max-width: 100%;
             height: auto;
-            margin-top: 15px;
-            border-radius: 4px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .blog-post img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         /* Updated styles for header */
         header {
