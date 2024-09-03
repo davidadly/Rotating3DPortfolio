@@ -29,6 +29,7 @@
             --card-background: #ffffff; /* White */
             --header-background: rgba(52, 152, 219, 0.1); /* Very transparent primary color for glass effect */
             --sidebar-background: rgba(44, 62, 80, 0.8); /* Transparent secondary color for sidebar */
+            --sidebar-divider: rgba(255, 255, 255, 0.1); /* Light divider color for sidebar */
         }
         header {
             display: flex;
@@ -220,14 +221,23 @@
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
             z-index: 1000;
             transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar-section {
+            padding: 20px;
+            border-bottom: 1px solid var(--sidebar-divider);
+        }
+        .sidebar-section:last-child {
+            border-bottom: none;
         }
         .sidebar ul {
             list-style-type: none;
             padding: 0;
-            margin-top: 60px; /* Add margin to account for header */
+            margin: 0;
         }
         .sidebar ul li {
-            margin: 20px 0;
+            margin: 15px 0;
         }
         .sidebar ul li a {
             color: #ffffff;
@@ -243,6 +253,12 @@
             background-color: var(--primary-color);
             color: #ffffff;
             transform: translateX(5px);
+        }
+        .sidebar-orb {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
         }
         .container {
             max-width: 800px;
@@ -424,14 +440,21 @@
     </header>
 
     <div class="sidebar">
-        <div id="sidebar-orb-container"></div>
-        <ul>
-            <li><a href="/home.html" style="color: #333;"><i class="fa fa-home"></i> Home</a></li>
-            <li><a href="/home.html"><i class="fa fa-briefcase"></i> Portfolio</a></li>
-            <li><a href="/about.html"><i class="fa fa-user"></i> About</a></li>
-            <li><a href="/contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
-            <li><a href="/blog.html"><i class="fa fa-pencil"></i> Blog</a></li>
-        </ul>
+        <div class="sidebar-section sidebar-orb">
+            <div id="sidebar-orb-container"></div>
+        </div>
+        <div class="sidebar-section">
+            <ul>
+                <li><a href="/home.html"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="/home.html"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+                <li><a href="/about.html"><i class="fa fa-user"></i> About</a></li>
+                <li><a href="/contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+                <li><a href="/blog.html"><i class="fa fa-pencil"></i> Blog</a></li>
+            </ul>
+        </div>
+        <div class="sidebar-section">
+            <!-- You can add additional widgets or content here -->
+        </div>
     </div>
     <div class="container">
         <div class="blog-header">
