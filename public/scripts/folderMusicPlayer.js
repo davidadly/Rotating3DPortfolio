@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         artistName.textContent = track.name;
         // Album art is now a static icon, so we don't need to set the src
 
-        audioPlayer.play();
+        // audioPlayer.play();
         updatePlayPauseIcon();
     }
 
