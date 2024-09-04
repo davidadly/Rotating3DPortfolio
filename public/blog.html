@@ -94,9 +94,17 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             z-index: 1000;
+            opacity: 0.7;
+        }
+        @media (max-width: 768px) {
+            #scroll-indicator {
+                width: 20px;
+                height: 20px;
+                opacity: 0.5;
+            }
         }
         #particles-background {
             position: fixed;
@@ -105,6 +113,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
+            pointer-events: none;
         }
 
         /* Scroll-to-top button styles */
@@ -244,7 +253,7 @@
             top: 0;
             left: 0;
             width: 250px;
-            height: 100%;
+            height: 100vh;
             background-color: var(--sidebar-background);
             backdrop-filter: blur(5px);
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
@@ -252,6 +261,7 @@
             transition: transform 0.3s ease-in-out;
             display: flex;
             flex-direction: column;
+            overflow-y: auto;
         }
         .sidebar-section {
             padding: 20px;
@@ -277,6 +287,8 @@
             transition: all 0.3s ease;
             border-radius: 5px;
             font-size: 1.1em;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .sidebar ul li a:hover {
             background-color: var(--primary-color);
@@ -342,24 +354,42 @@
             color: var(--secondary-color);
             font-size: 1.6em;
             font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .blog-post .date {
             color: var(--accent-color-3);
             font-size: 0.9em;
             margin-bottom: 15px;
             font-style: italic;
+            padding-top: 10px;
         }
         .blog-post .content {
             margin-top: 20px;
             line-height: 1.8;
+            max-height: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+        .blog-post .content::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(transparent, var(--card-background));
         }
         .blog-post .content p {
             margin-bottom: 1.2em;
         }
-        .blog-post img {
+        .blog-post img,
+        .blog-post pre,
+        .blog-post blockquote {
             max-width: 100%;
             height: auto;
-            margin-top: 20px;
+            margin: 20px 0;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
@@ -367,6 +397,12 @@
         .blog-post img:hover {
             transform: scale(1.02);
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .blog-post pre,
+        .blog-post blockquote {
+            padding: 15px;
+            background-color: #f8f8f8;
+            overflow-x: auto;
         }
         /* Updated styles for header */
         header {
@@ -497,6 +533,12 @@
             <a href="/about.html">ABOUT</a>
             <a href="/contact.html">CONTACT</a>
         </nav>
+        <div class="mobile-icons">
+            <button id="mobile-menu-toggle">☰</button>
+            <div class="mobile-menu">
+                <!-- Social media icons for mobile -->
+            </div>
+        </div>
     </header>
 
     <div class="sidebar">
@@ -520,6 +562,19 @@
         <div class="blog-header">
             <h2>Daily Blog</h2>
         </div>
+        <style>
+            .blog-header {
+                margin: 40px 0 20px;
+                padding: 20px;
+                background-color: var(--card-background);
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .blog-header h2 {
+                margin: 0;
+                color: var(--secondary-color);
+            }
+        </style>
 
         <div id="blogPostsContainer" style="overflow-y: auto; max-height: 80vh;"></div>
     </div>
