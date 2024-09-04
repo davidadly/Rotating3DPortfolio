@@ -160,8 +160,8 @@
             box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.7); /* Stronger vignette on hover */
         }
 
-        /* Lightbox styles */
-        .lightbox {
+        /* Lightbox and Highlight mode styles */
+        .lightbox, .highlight-mode {
             position: fixed;
             top: 0;
             left: 0;
@@ -171,37 +171,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 10000;
+            z-index: 2000;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
-        .lightbox img {
+        .lightbox img, .highlight-mode img {
             max-width: 90%;
             max-height: 90%;
             border-radius: 8px;
         }
 
-        .lightbox.active {
+        .lightbox.active, .highlight-mode.active {
             opacity: 1;
             visibility: visible;
-        }
-
-        .highlight-mode {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10001;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .highlight-mode.active {
