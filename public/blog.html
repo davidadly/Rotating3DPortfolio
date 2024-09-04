@@ -292,10 +292,15 @@
         .container {
             max-width: 800px;
             margin: 80px auto 20px; /* Increased top margin to account for header */
-            padding: 20px;
+            padding: 40px;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
         }
         .blog-header {
             text-align: center;
